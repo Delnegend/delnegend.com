@@ -34,8 +34,8 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: pnpm i
-      - name: Build with VitePress
-        run: pnpm docs:build
+      - name: Build with Nuxt
+        run: pnpm generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
