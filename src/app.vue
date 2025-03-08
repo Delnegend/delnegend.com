@@ -26,7 +26,7 @@ const maintaining = [{
 	title: "Charlotte Social",
 	description: "A platform for connecting parents with pediatric and fitness trainers to help their children grow taller.",
 	url: "https://kiness.vn",
-	badges: ["react", "tauri", "pwa", "tailwindcss", "shadcn-ui", "react-native", "expo", "nativewind"],
+	badges: ["typescript", "react", "tauri", "pwa", "tailwindcss", "shadcn-ui", "react-native", "expo", "nativewind"],
 },
 {
 	title: "gallery-preprocessor-go",
@@ -36,7 +36,7 @@ const maintaining = [{
 },
 {
 	title: "upptime-embed",
-	description: "Alternative <a href='https://github.com/upptime/upptime' target='_blank'>upptime</a> frontpage with no rate-limiting.",
+	description: "Alternative upptime frontpage with no rate-limiting.",
 	url: "https://github.com/Delnegend/upptime-embed",
 	badges: ["go", "typescript", "nuxt", "regex", "tailwindcss", "shadcn-ui"],
 },
@@ -50,7 +50,7 @@ const maintaining = [{
 	title: "social-2-telego",
 	description: "Desktop app for quickly re-posting social media posts to Telegram.",
 	url: "https://github.com/Delnegend/social-2-telego",
-	badges: ["go", "wails", "nuxt", "tailwindcss", "shadcn-ui", "telegram", "web-scraping"],
+	badges: ["go", "wails", "nuxt", "sqlite", "tailwindcss", "shadcn-ui", "telegram", "web-scraping"],
 },
 {
 	title: "cf-ddns",
@@ -85,13 +85,13 @@ const archived = [{
 },
 {
 	title: "fshare-cli",
-	description: "A CLI-based user interface for interacting with <a href='https://fshare.vn' target='_blank'>fshare.vn</a>.",
+	description: "A CLI-based user interface for interacting with fshare.vn.",
 	url: "https://github.com/Delnegend/fshare-cli",
 	badges: ["python", "fshare", "regex"],
 },
 {
 	title: "KHPlayer",
-	description: "My very first &quot;large&quot; project. Bootstrapping <a href='https://plyr.io' target='_blank'>Plyr.io</a> without touching any JavaScript, similar ,to how HTMX works.",
+	description: "My very first \"large\" project. Bootstrapping Plyr.io player without touching any JavaScript, similar ,to how HTMX works.",
 	url: "https://github.com/Delnegend/social-2-telegram",
 	badges: ["plyr.io", "html", "css", "javascript"],
 }];
