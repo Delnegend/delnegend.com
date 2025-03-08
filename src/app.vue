@@ -124,21 +124,22 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 				Fresher? Software Engineer.
 			</div>
 
-			<div class="flex flex-row items-center gap-2 text-2xl font-thin">
+			<div class="gap-2 text-2xl font-thin">
 				Here's my
 				<a
 					href="https://delnegend.com/resume.pdf"
 					target="_blank"
-					class="flex flex-row items-center gap-2 underline">
+					class="inline-flex flex-row items-center">
 					<SparklesText
 						disabled
 						text="resume"
-						class="-mx-16 inline-block scale-[0.4]"
-						:sparkles-count="10" />
+						class="inline-block"
+						:sparkles-count="5" />
+					&nbsp;
 					<ExternalLink
 						:size="14"
-						class="-mb-1" />
-				</a>, hire me pls 🥹
+						class="-mb-1" />,
+				</a> hire me pls 🥹
 			</div>
 
 			<div class="mt-16 flex flex-col gap-2 text-xl font-thin">

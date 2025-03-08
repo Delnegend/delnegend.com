@@ -79,7 +79,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<div :class="cn('text-6xl font-bold', props.class)">
+	<div :class="cn('text-2xl font-bold', props.class)">
 		<span class="relative inline-block">
 			<template
 				v-for="sparkle in sparkles"
