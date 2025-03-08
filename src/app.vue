@@ -10,6 +10,11 @@ import ProjectCard from "./components/ProjectCard.vue";
 import SparklesText from "./components/SparklesText.vue";
 import { Card, CardTitle } from "./components/ui/card";
 
+const contacts = [
+	["Email", "kien@delnegend.com", "mailto:kien@delnegend.com"],
+	["GitHub", "github.com/Delnegend", "https://github.com/Delnegend"],
+];
+
 const maintaining = [{
 	title: "Yomuyume",
 	description: "Self-hosted comic media server.",
@@ -176,15 +181,19 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 				Contacts
 			</div>
 			<div>
-				<div>
-					Email: <a
-						href="mailto:kien@delnegend.com"
-						target="_blank">kien@delnegend.com</a>
-				</div>
-				<div>
-					GitHub: <a
-						href="https://github.com/Delnegend"
-						target="_blank">Delnegend</a>
+				<div
+					v-for="[where, label, href] in contacts"
+					:key="where">
+					<span class="font-extralight">{{ where }}:&nbsp;</span>
+					<a
+						:href="href"
+						target="_blank"
+						class="inline-flex items-center gap-1 font-medium">
+						{{ label }}
+						<ExternalLink
+							:size="14"
+							class="inline" />
+					</a>
 				</div>
 			</div>
 
