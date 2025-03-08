@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ExternalLink } from "lucide-vue-next";
-import type { VNode } from "vue";
 
 import { cn } from "~/utils/utils";
 
@@ -9,7 +8,7 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/c
 
 const props = withDefaults(defineProps<{
 	title: string;
-	description: string | VNode;
+	description: string;
 	url?: string;
 	class?: string;
 	badges?: string[];
