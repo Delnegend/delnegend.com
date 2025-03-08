@@ -14,13 +14,13 @@ const maintaining = [{
 	title: "Yomuyume",
 	description: "Self-hosted comic media server.",
 	url: "https://github.com/Liminova/yomuyume",
-	badges: ["rust", "typescript", "nuxt", "axum", "postgresql", "comicinfo.xml", "jpeg-xl", "blurhash", "pwa", "web-worker", "tailwindcss", "shadcn-ui", "material-ui"],
+	badges: ["rust", "typescript", "nuxt", "wasm", "axum", "postgresql", "comicinfo.xml", "jpeg-xl", "blurhash", "pwa", "web-worker", "tailwindcss", "shadcn-ui", "material-ui"],
 },
 {
 	title: "Artefact",
-	description: "Artifact-free JPEG image decoder.",
-	url: "https://github.com/Delnegend/artefact",
-	badges: ["rust", "typescript", "nuxt", "web-worker", "pwa", "simd", "jpeg", "png", "tailwindcss", "shadcn-ui"],
+	description: "Artifact-free JPEG image decoder, right in your browser.",
+	url: "https://artefact.delnegend.com",
+	badges: ["rust", "typescript", "wasm", "nuxt", "web-worker", "pwa", "simd", "jpeg", "png", "tailwindcss", "shadcn-ui"],
 },
 {
 	title: "Charlotte Social",
