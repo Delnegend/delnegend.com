@@ -232,20 +232,22 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					:description="project.description"
 					:url="project.url"
 					:badges="project.badges" />
-				<Card class="col-span-3">
-					<CardTitle class="flex items-center justify-center px-5 py-4 text-xl font-thin">
-						And many more on my
-						&nbsp;<a
-							class="inline-flex items-center gap-1 font-normal no-underline"
-							href="https://github.com/Delnegend"
-							target="_blank">
-							<GitHub class="inline" />
-							GitHub
-							<ExternalLink :size="16" />
-						</a>
-					</CardTitle>
-				</Card>
 			</div>
+			<Card class="mt-3">
+				<CardTitle class="text-center px-5 py-4 text-xl font-thin">
+					<span>
+						And many more on my&nbsp;
+					</span>
+					<a
+						class="inline-flex items-center gap-1 font-normal no-underline"
+						href="https://github.com/Delnegend"
+						target="_blank">
+						<GitHub class="inline" />
+						GitHub
+						<ExternalLink :size="16" />
+					</a>
+				</CardTitle>
+			</Card>
 		</div>
 	</div>
 </template>
