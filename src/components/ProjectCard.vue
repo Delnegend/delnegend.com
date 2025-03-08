@@ -49,14 +49,26 @@ const props = withDefaults(defineProps<{
 					'bg-[hsl(199_97%_73%)] text-[hsl(199_97%_20%)]': badge === 'go',
 					'bg-[hsl(211_60%_48%)] text-white': badge === 'typescript',
 					'bg-[hsl(153_47%_49%)] text-white': badge === 'vue',
-					'bg-[hsl(155_100%_43%)] text-white': badge === 'nuxt',
+					'bg-[hsl(155_100%_43%)] text-[hsl(222_47%_11%)]': badge === 'nuxt',
 					'bg-[hsl(0_100%_31%)] text-white': badge === 'wails',
 					'bg-[hsl(207_51%_41%)] text-white': badge === 'python',
 					'bg-[hsl(28_92%_54%)] text-black': badge === 'cloudflare',
 					'bg-[hsl(227_58%_65%)] text-white': badge === 'discord',
+					'bg-[hsl(248_84%_63%)] text-white': badge === 'wasm',
+					'bg-[hsl(191_65%_60%)] text-[#404756]': badge === 'react',
+					'tauri text-[#000000b0]': badge === 'tauri',
+					'bg-[#00bcff] text-[#000000b0]': badge === 'tailwindcss',
+					'bg-[hsl(120_39%_54%)] text-white': badge === 'ffmpeg',
 				})">
 				{{ badge }}
 			</Badge>
 		</CardFooter>
 	</Card>
 </template>
+
+<style scoped>
+.tauri {
+	background: hsl(186, 72%, 50%);
+	background: linear-gradient(90deg, hsl(186, 72%, 50%) 0%, hsl(42, 100%, 60%) 100%);
+}
+</style>
