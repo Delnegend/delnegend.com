@@ -19,7 +19,7 @@
 		"clsx": "^2.1.1",
 		"lucide-vue-next": "^0.477.0",
 		"motion-v": "^0.11.2",
-		"nuxt": "^3.15.4",
+		"nuxt": "^3.16.0",
 		"tailwind-merge": "^3.0.2",
 		"tailwindcss-animate": "^1.0.7",
 		"vue": "^3.5.13",
@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.20",
-		"eslint": "^9.21.0",
+		"eslint": "^9.22.0",
 		"eslint-plugin-hagemanto": "^5.0.1",
 		"eslint-plugin-vue": "^10.0.0",
 		"tailwindcss": "^3.4.17"
