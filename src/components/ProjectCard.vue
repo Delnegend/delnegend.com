@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<{
 				<span v-else>{{ props.title }}</span>
 			</CardTitle>
 			<!-- eslint-disable-next-line vue/no-v-html, vue/no-v-text-v-html-on-component -->
-			<CardDescription v-html="props.description" />
+			<CardDescription>{{ props.description }}</CardDescription>
 		</CardHeader>
 		<CardFooter
 			v-if="props.badges.length"
@@ -43,22 +43,7 @@ const props = withDefaults(defineProps<{
 				v-for="badge in props.badges"
 				:key="badge"
 				variant="outline"
-				:class="cn({
-					'bg-[hsl(344_67%_39%)] text-white': badge === 'rust',
-					'bg-[hsl(199_97%_73%)] text-[hsl(199_97%_20%)]': badge === 'go',
-					'bg-[hsl(211_60%_48%)] text-white': badge === 'typescript',
-					'bg-[hsl(153_47%_49%)] text-white': badge === 'vue',
-					'bg-[hsl(155_100%_43%)] text-[hsl(222_47%_11%)]': badge === 'nuxt',
-					'bg-[hsl(0_100%_31%)] text-white': badge === 'wails',
-					'bg-[hsl(207_51%_41%)] text-white': badge === 'python',
-					'bg-[hsl(28_92%_54%)] text-black': badge === 'cloudflare',
-					'bg-[hsl(227_58%_65%)] text-white': badge === 'discord',
-					'bg-[hsl(248_84%_63%)] text-white': badge === 'wasm',
-					'bg-[hsl(191_65%_60%)] text-[#404756]': badge === 'react',
-					'tauri text-[#000000b0]': badge === 'tauri',
-					'bg-[#00bcff] text-[#000000b0]': badge === 'tailwindcss',
-					'bg-[hsl(120_39%_54%)] text-white': badge === 'ffmpeg',
-				})">
+				:class="cn('transition-colors', 'hover:[background:var(--bg)] hover:text-[--text] text-muted-foreground', badge)">
 				{{ badge }}
 			</Badge>
 		</CardFooter>
@@ -66,8 +51,103 @@ const props = withDefaults(defineProps<{
 </template>
 
 <style scoped>
+.rust {
+	--bg: hsl(344, 67%, 39%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.go {
+	--bg: hsl(199, 97%, 73%);
+	--text: hsl(199, 97%, 20%);
+}
+
+.typescript {
+	--bg: hsl(211, 60%, 48%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.vue {
+	--bg: hsl(153, 47%, 49%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.nuxt {
+	--bg: hsl(155, 100%, 43%);
+	--text: hsl(222, 47%, 11%);
+}
+
+.wails {
+	--bg: hsl(0, 100%, 31%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.python {
+	--bg: hsl(207, 51%, 41%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.cloudflare {
+	--bg: hsl(28, 92%, 54%);
+	--text: hsl(0, 0%, 0%);
+}
+
+.discord {
+	--bg: hsl(227, 58%, 65%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.wasm {
+	--bg: hsl(248, 84%, 63%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.react {
+	--bg: hsl(191, 65%, 60%);
+	--text: hsl(0, 0%, 0%);
+}
+
+.react-native {
+	--bg: hsl(191, 65%, 60%);
+	--text: hsl(0, 0%, 0%);
+}
+
 .tauri {
-	background: hsl(186, 72%, 50%);
-	background: linear-gradient(90deg, hsl(186, 72%, 50%) 0%, hsl(42, 100%, 60%) 100%);
+	--bg: linear-gradient(90deg, hsl(186, 72%, 50%) 0%, hsl(42, 100%, 60%) 100%);
+	--text: hsl(0, 0%, 0%);
+}
+
+.tailwindcss {
+	--bg: hsl(196, 100%, 50%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.ffmpeg {
+	--bg: hsl(120, 39%, 54%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.postgresql {
+	--bg: hsl(207, 48%, 38%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.telegram {
+	--bg: hsl(200, 74%, 51%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.plyr\.io {
+	--bg: hsl(198, 100%, 50%);
+	--text: hsl(0, 0%, 0%);
+}
+
+.javascript {
+	--bg: hsl(52, 84%, 64%);
+	--text: hsl(80, 3%, 22%);
+}
+
+.sqlite {
+	--bg: hsl(204, 86%, 43%);
+	--text: hsl(0, 0%, 100%);
 }
 </style>
