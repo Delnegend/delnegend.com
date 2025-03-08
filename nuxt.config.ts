@@ -26,7 +26,7 @@ export default defineNuxtConfig({
 			postcss: {
 				plugins: [tailwind(), autoprefixer()],
 			},
-		}
+		},
 	},
 	components: {
 		dirs: [],
@@ -35,4 +35,5 @@ export default defineNuxtConfig({
 		scan: false,
 		autoImport: false,
 	},
+	ssr: false,
 });
