@@ -122,7 +122,7 @@ onBeforeMount(() => {
 			</div>
 
 			<div class="flex flex-row items-center gap-2 text-2xl font-thin">
-				This's my
+				Here's my
 				<a
 					href="https://delnegend.com/resume.pdf"
 					target="_blank"
