@@ -96,10 +96,8 @@ const archived = [{
 	badges: ["plyr.io", "html", "css", "javascript"],
 }];
 
-onBeforeMount(() => {
-	// eslint-disable-next-line no-undef
-	document.querySelector("html")?.classList.add("dark");
-});
+// eslint-disable-next-line no-undef
+onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 </script>
 
 <template>
