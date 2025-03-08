@@ -3,6 +3,9 @@ import path from "node:path";
 import autoprefixer from "autoprefixer";
 import tailwind from "tailwindcss";
 
+const title = "Delnegend";
+const description = "Delnegend's portfolio.";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
@@ -38,12 +41,30 @@ export default defineNuxtConfig({
 	ssr: true,
 	app: {
 		head: {
-			title: "Delnegend",
+			title,
 			meta: [
 				{ charset: "utf-8" },
 				{ name: "viewport", content: "width=device-width, initial-scale=1" },
-				{ hid: "description", name: "description", content: "Delnegend's portfolio." },
+
+				{ name: "title", content: title },
+				{ name: "description", content: description },
+
+				{ property: "og:type", content: "website" },
+				{ property: "og:url", content: "https://delnegend.com/" },
+				{ property: "og:title", content: title },
+				{ property: "og:description", content: description },
+				// { property: "og:image", content: "https://delnegend.com/banner.png" },
+
+				// { property: "twitter:card", content: "https://delnegend.com/banner.png" },
+				{ property: "twitter:url", content: "https://delnegend.com/" },
+				{ property: "twitter:title", content: title },
+				{ property: "twitter:description", content: description },
+				// { property: "twitter:image", content: "https://delnegend.com/banner.png" },
 			],
+			htmlAttrs: {
+				lang: "en",
+				class: "dark",
+			},
 		},
 	},
 });
