@@ -121,11 +121,11 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 			</div>
 
 			<div class="mb-16 mt-2 text-3xl font-medium">
-				Fresher? Software Engineer.
+				10% Software Engineer.
 			</div>
 
 			<div class="gap-2 text-2xl font-thin">
-				Here's my
+				I'm looking for a job, here's my
 				<a
 					href="https://delnegend.com/resume.pdf"
 					target="_blank"
@@ -138,8 +138,8 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					&nbsp;
 					<ExternalLink
 						:size="14"
-						class="-mb-1" />,
-				</a> hire me pls 🥹
+						class="-mb-1" />
+				</a>.
 			</div>
 
 			<div class="mt-16 flex flex-col gap-2 text-xl font-thin">
@@ -179,26 +179,6 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 			</div>
 
 			<div class="mb-4 mt-20 text-2xl font-thin">
-				Contacts
-			</div>
-			<div>
-				<div
-					v-for="[where, label, href] in contacts"
-					:key="where">
-					<span class="font-extralight">{{ where }}:&nbsp;</span>
-					<a
-						:href="href"
-						target="_blank"
-						class="inline-flex items-center gap-1 font-medium">
-						{{ label }}
-						<ExternalLink
-							:size="14"
-							class="inline" />
-					</a>
-				</div>
-			</div>
-
-			<div class="mb-4 mt-20 text-2xl font-thin">
 				Working on and/or maintaining
 			</div>
 
@@ -234,7 +214,7 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					:badges="project.badges" />
 			</div>
 			<Card class="mt-3">
-				<CardTitle class="text-center px-5 py-4 text-xl font-thin">
+				<CardTitle class="px-5 py-4 text-center text-xl font-thin">
 					<span>
 						And many more on my&nbsp;
 					</span>
@@ -248,6 +228,26 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					</a>
 				</CardTitle>
 			</Card>
+
+			<div class="mb-4 mt-20 text-2xl font-thin">
+				Contacts
+			</div>
+			<div>
+				<div
+					v-for="[where, label, href] in contacts"
+					:key="where">
+					<span class="font-extralight">{{ where }}:&nbsp;</span>
+					<a
+						:href="href"
+						target="_blank"
+						class="inline-flex items-center gap-1 font-medium">
+						{{ label }}
+						<ExternalLink
+							:size="14"
+							class="inline" />
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
