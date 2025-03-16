@@ -4,9 +4,11 @@ import { onBeforeMount } from "vue";
 
 import ParticlesBg from "~/components/ParticlesBg.vue";
 
+import ExtLink from "./components/ExtLink.vue";
 import GitHub from "./components/icons/GitHub.vue";
 import LineShadowText from "./components/LineShadowText.vue";
 import ProjectCard from "./components/ProjectCard.vue";
+import RegularTitle from "./components/RegularTitle.vue";
 import SparklesText from "./components/SparklesText.vue";
 import { Card, CardTitle } from "./components/ui/card";
 
@@ -111,38 +113,22 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 			class="fixed left-0 top-0 -z-10 h-dvh w-dvw bg-black"
 			:quantity="200" />
 
-		<div class="mx-auto my-20 flex w-[90%] max-w-[960px] flex-col">
-			<div
-				class="bg-transparent text-5xl font-black normal-case text-primary-foreground"
-				:style="{
-					textShadow: '-1px -1px 0 #ffffff8a, 1px -1px 0 #ffffff8a, -1px 1px 0 #ffffff8a, 1px 1px 0 #ffffff8a',
-				}">
-				Delnegend
+		<div class="mx-auto my-20 flex w-[90%] max-w-[960px] flex-col gap-24">
+			<div class="flex flex-col gap-2">
+				<div
+					class="bg-transparent text-5xl font-black normal-case text-primary-foreground"
+					:style="{
+						textShadow: '-1px -1px 0 #ffffff8a, 1px -1px 0 #ffffff8a, -1px 1px 0 #ffffff8a, 1px 1px 0 #ffffff8a',
+					}">
+					Delnegend
+				</div>
+				<div class="flex flex-row flex-wrap gap-1 text-3xl font-medium">
+					<span>10% Software Engineer,</span>
+					<span>90% Overengineering.</span>
+				</div>
 			</div>
 
-			<div class="mb-16 mt-2 text-3xl font-medium">
-				10% Software Engineer.
-			</div>
-
-			<div class="gap-2 text-2xl font-thin">
-				I'm looking for a job, here's my
-				<a
-					href="https://delnegend.com/resume.pdf"
-					target="_blank"
-					class="inline-flex flex-row items-center">
-					<SparklesText
-						disabled
-						text="resume"
-						class="inline-block"
-						:sparkles-count="5" />
-					&nbsp;
-					<ExternalLink
-						:size="14"
-						class="-mb-1" />
-				</a>.
-			</div>
-
-			<div class="mt-16 flex flex-col gap-2 text-xl font-thin">
+			<div class="flex flex-col gap-2 text-xl font-thin">
 				<div>I build fullstack softwares,</div>
 				<div>make desktop, mobile apps,</div>
 				<div>
@@ -178,74 +164,119 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 				</div>
 			</div>
 
-			<div class="mb-4 mt-20 text-2xl font-thin">
-				Working on and/or maintaining
-			</div>
-
-			<div
-				class="grid gap-3"
-				:style="{
-					gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
-				}">
-				<ProjectCard
-					v-for="project in maintaining"
-					:key="project.title"
-					:title="project.title"
-					:description="project.description"
-					:url="project.url"
-					:badges="project.badges" />
-			</div>
-
-			<div class="mb-4 mt-20 text-2xl font-thin">
-				Past notable projects
-			</div>
-
-			<div
-				class="grid gap-3"
-				:style="{
-					gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
-				}">
-				<ProjectCard
-					v-for="project in archived"
-					:key="project.title"
-					:title="project.title"
-					:description="project.description"
-					:url="project.url"
-					:badges="project.badges" />
-			</div>
-			<Card class="mt-3">
-				<CardTitle class="px-5 py-4 text-center text-xl font-thin">
-					<span>
-						And many more on my&nbsp;
-					</span>
-					<a
-						class="inline-flex items-center gap-1 font-normal no-underline"
-						href="https://github.com/Delnegend"
-						target="_blank">
-						<GitHub class="inline" />
-						GitHub
-						<ExternalLink :size="16" />
-					</a>
-				</CardTitle>
-			</Card>
-
-			<div class="mb-4 mt-20 text-2xl font-thin">
-				Contacts
-			</div>
 			<div>
+				<RegularTitle class="mb-3">
+					Education
+				</RegularTitle>
+				<div class="text-balance text-muted-foreground">
+					2021 - 2024<br>
+					<ExtLink
+						class="inline-flex items-center gap-1 underline underline-offset-4"
+						href="https://usth.edu.vn/en"
+						target="_blank">
+						University of Science and Technology of Hanoi
+					</ExtLink>
+					<br>
+					Major in Information and Communication Technology
+				</div>
+			</div>
+
+			<div>
+				<RegularTitle class="mb-3">
+					Languages
+				</RegularTitle>
+				<ul class="text-muted-foreground">
+					<li>Vietnamese - native</li>
+					<li>English - can't live without</li>
+					<li>French - je ne parle pas</li>
+				</ul>
+			</div>
+
+			<div>
+				<RegularTitle class="mb-3">
+					Working on and/or maintaining
+				</RegularTitle>
 				<div
-					v-for="[where, label, href] in contacts"
-					:key="where">
-					<span class="font-extralight">{{ where }}:&nbsp;</span>
-					<a
-						:href="href"
-						target="_blank"
-						class="inline-flex items-center gap-1 font-medium">
-						{{ label }}
-						<ExternalLink
-							:size="14"
-							class="inline" />
-					</a>
+					class="grid gap-3"
+					:style="{
+						gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
+					}">
+					<ProjectCard
+						v-for="project in maintaining"
+						:key="project.title"
+						:title="project.title"
+						:description="project.description"
+						:url="project.url"
+						:badges="project.badges" />
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-3">
+				<RegularTitle>Past notable projects</RegularTitle>
+				<div
+					class="grid gap-3"
+					:style="{
+						gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
+					}">
+					<ProjectCard
+						v-for="project in archived"
+						:key="project.title"
+						:title="project.title"
+						:description="project.description"
+						:url="project.url"
+						:badges="project.badges" />
+				</div>
+				<Card>
+					<CardTitle class="px-5 py-4 text-center text-xl font-thin">
+						<span>
+							And many more on my&nbsp;
+						</span>
+						<a
+							class="inline-flex items-center gap-1 font-normal no-underline"
+							href="https://github.com/Delnegend"
+							target="_blank">
+							<GitHub class="inline" />
+							GitHub
+							<ExternalLink :size="16" />
+						</a>
+					</CardTitle>
+				</Card>
+			</div>
+
+			<div class="gap-2 text-2xl font-thin">
+				I'm (not) looking for a job (at the moment, but) here's my
+				<a
+					href="https://delnegend.com/resume.pdf"
+					target="_blank"
+					class="inline-flex flex-row items-center">
+					<SparklesText
+						disabled
+						text="resume"
+						class="inline-block"
+						:sparkles-count="5" />
+					&nbsp;
+					<ExternalLink
+						:size="14"
+						class="-mb-1" />
+				</a>.
+			</div>
+
+			<div>
+				<div class="mb-4 text-2xl font-thin">
+					Contacts
+				</div>
+				<div>
+					<div
+						v-for="[where, label, href] in contacts"
+						:key="where">
+						<span class="font-extralight">{{ where }}:&nbsp;</span>
+						<ExtLink
+							:href="href"
+							target="_blank"
+							class="font-medium">
+							{{ label }}
+						</ExtLink>
+					</div>
 				</div>
 			</div>
 		</div>
