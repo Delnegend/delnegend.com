@@ -166,34 +166,6 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 
 			<div>
 				<RegularTitle class="mb-3">
-					Education
-				</RegularTitle>
-				<div class="text-balance text-muted-foreground">
-					2021 - 2024<br>
-					<ExtLink
-						class="inline-flex items-center gap-1 underline underline-offset-4"
-						href="https://usth.edu.vn/en"
-						target="_blank">
-						University of Science and Technology of Hanoi
-					</ExtLink>
-					<br>
-					Major in Information and Communication Technology
-				</div>
-			</div>
-
-			<div>
-				<RegularTitle class="mb-3">
-					Languages
-				</RegularTitle>
-				<ul class="text-muted-foreground">
-					<li>Vietnamese - native</li>
-					<li>English - can't live without</li>
-					<li>French - je ne parle pas</li>
-				</ul>
-			</div>
-
-			<div>
-				<RegularTitle class="mb-3">
 					Working on and/or maintaining
 				</RegularTitle>
 				<div
