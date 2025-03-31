@@ -15,6 +15,7 @@ import { Card, CardTitle } from "./components/ui/card";
 const contacts = [
 	["Email", "kien@delnegend.com", "mailto:kien@delnegend.com"],
 	["GitHub", "github.com/Delnegend", "https://github.com/Delnegend"],
+	["Discord", "@delnegend", "https://discordapp.com/users/577800591724642304"]
 ];
 
 const maintaining = [{
@@ -164,6 +165,24 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 				</div>
 			</div>
 
+			<div class="gap-2 text-2xl font-thin">
+				I'm not looking for a full-time job atm, but here's my
+				<a
+					href="https://delnegend.com/resume.pdf"
+					target="_blank"
+					class="inline-flex flex-row items-center">
+					<SparklesText
+						disabled
+						text="resume"
+						class="inline-block"
+						:sparkles-count="5" />
+					&nbsp;
+					<ExternalLink
+						:size="14"
+						class="-mb-1" />
+				</a> if you need a freelancer.
+			</div>
+
 			<div>
 				<RegularTitle class="mb-3">
 					Working on and/or maintaining
@@ -213,24 +232,6 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 						</a>
 					</CardTitle>
 				</Card>
-			</div>
-
-			<div class="gap-2 text-2xl font-thin">
-				I'm (not) looking for a job (at the moment, but) here's my
-				<a
-					href="https://delnegend.com/resume.pdf"
-					target="_blank"
-					class="inline-flex flex-row items-center">
-					<SparklesText
-						disabled
-						text="resume"
-						class="inline-block"
-						:sparkles-count="5" />
-					&nbsp;
-					<ExternalLink
-						:size="14"
-						class="-mb-1" />
-				</a>.
 			</div>
 
 			<div>
