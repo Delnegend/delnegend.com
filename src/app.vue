@@ -11,6 +11,7 @@ import ProjectCard from "./components/ProjectCard.vue";
 import RegularTitle from "./components/RegularTitle.vue";
 import SparklesText from "./components/SparklesText.vue";
 import { Card, CardTitle } from "./components/ui/card";
+import type { Project } from "./utils/utils";
 
 const contacts = [
 	["Email", "kien@delnegend.com", "mailto:kien@delnegend.com"],
@@ -18,88 +19,163 @@ const contacts = [
 	["Discord", "@delnegend", "https://discordapp.com/users/577800591724642304"]
 ];
 
-const maintaining = [{
+const maintaining: Project[] = [{
 	title: "Yomuyume",
-	description: "Self-hosted comic media server.",
+	summary: "Self-hosted comic media server.",
+	description: "A high-performance, self-hosted comic/manga media server. It allows users to manage their digital comic collections, track reading progress across multiple users with role-based access, and share access via invitations.",
+	details: [
+		"Multi-user accounts, per-user progress tracking, role-based access control (admin, user), invitation system, comprehensive metadata tagging/categorization, search, mobile-friendly reader interface...",
+		"Handles whatever 7-Zip can handle",
+	],
 	url: "https://github.com/Liminova/yomuyume",
-	badges: ["rust", "typescript", "nuxt", "wasm", "axum", "postgresql", "comicinfo.xml", "jpeg-xl", "blurhash", "pwa", "web-worker", "tailwindcss", "shadcn-ui", "material-ui"],
+	badges: ["rust", "typescript", "nuxt", "wasm", "axum", "postgresql", "tantivy", "comicinfo.xml", "jpeg-xl", "blurhash", "pwa", "web-worker", "tailwindcss", "shadcn-ui", "material-ui"],
 },
 {
 	title: "Artefact",
-	description: "Artifact-free JPEG image decoder, right in your browser.",
+	summary: "Artifact-free JPEG decoder.",
+	description: "A JPEG decoder (re)written in Rust, aimed to remove compression artifacts using a shit ton of maths. It runs entirely in the browser, processing images locally, outputting artifact-free results. Significantly faster than the original C implementation because my SIMD is better.",
+	details: [
+		"Using total generalized variation (TGV) regularization to \"cast\" coefficient integers to floats, thus reducing visual artifacts common in compressed JPEGs.",
+		"Output WebP (lossless), PNG, TIFF, BMP.",
+		"3x faster than the original C version.",
+	],
 	url: "https://artefact.delnegend.com",
 	badges: ["rust", "typescript", "wasm", "nuxt", "web-worker", "pwa", "simd", "jpeg", "png", "tailwindcss", "shadcn-ui"],
 },
 {
-	title: "Charlotte Social",
-	description: "A platform for connecting parents with pediatric and fitness trainers to help their children grow taller.",
+	title: "Kiness Social/Admin",
+	summary: "Social media + user management platform.",
+	description: "A dual-application platform connecting parents with pediatric and fitness trainers, built as a freelance project. Features a social app for parents (scheduling, messaging, following trainers) and a comprehensive admin app for trainers/doctors (managing clients, schedules, accounts).",
+	details: [
+		"Parent App Features: Follow trainers/doctors, view schedules, request rescheduling, send/receive messages.",
+		"Admin App Features: Manage student/client profiles, manage parent accounts, schedule management, communication tools.",
+		"Wrote all business logic for user interactions, scheduling, and management from scratch.",
+	],
 	url: "https://kiness.vn",
 	badges: ["typescript", "react", "tauri", "pwa", "tailwindcss", "shadcn-ui", "react-native", "expo", "nativewind"],
 },
 {
+	title: "Update",
+	summary: "Apps update checker.",
+	description: "A simple CLI to check for updates for apps with no auto-update on Windows, scrapes official sources and checks files' metadata to find newer versions and provides working direct download links (if available).",
+	details: [
+		"Scrapes websites, checks `.exe` file version resources, uses `--version` CLI argument where applicable.",
+		"Motivation: Automate the tedious process of manually checking for updates for various CLI tools and other applications."
+	],
+	url: "https://github.com/Delnegend/update",
+	badges: ["go", "regex"],
+},
+{
+	title: "Differ",
+	summary: "Inter-frame compression for images.",
+	description: "A CLI tool designed to save storage space for artwork packs by extracting the differences between images. It's similar to inter-frame compression in video codecs, but pixel-by-pixel rather than regions.",
+	details: [
+		"Outputs transparent PNGs that contain only the differences between itself and the image before.",
+		"Can also be used to reconstruct original images, or you can just overlay the diff image over the base one using any photo editor.",
+	],
+	url: "https://github.com/Delnegend/differ",
+	badges: ["go"],
+},
+{
 	title: "gallery-preprocessor-go",
-	description: "Small window to drag-and-drop images on to perform a bunch of small tasks on them.",
+	summary: "Drag-and-drop batch processing tool.",
+	description: "A desktop app for me to drag-and-drop images onto to perform a bunch of small tasks on them.",
+	details: [
+		"Converts PNG/JPG to JPEG XL/AVIF",
+		"Runs the Artefact decoder on JPEGs",
+		"Runs the Differ tool on PNG sequences",
+		"And more if I feel like it."
+	],
 	url: "https://github.com/Delnegend/gallery-preprocessor-go",
 	badges: ["go", "wails", "vue", "tailwindcss", "shadcn-ui"],
 },
 {
 	title: "upptime-embed",
-	description: "Alternative upptime frontpage with no rate-limiting.",
+	summary: "Upptime status page for embed.",
+	description: "An alternative, modern frontend for Upptime (a GitHub Actions-powered status page system), built purely to avoid GitHub API rate limits by scraping the status info from the generated README file.",
 	url: "https://github.com/Delnegend/upptime-embed",
 	badges: ["go", "typescript", "nuxt", "regex", "tailwindcss", "shadcn-ui"],
 },
 {
 	title: "taxer",
-	description: "Discord music bot written in Rust (and for some other things).",
+	summary: "Discord music bot.",
+	description: "A Discord music bot written in Rust using yt-dlp under the hood.",
 	url: "https://github.com/Liminova/taxer",
 	badges: ["rust", "discord", "poise", "yt-dlp"],
 },
 {
 	title: "social-2-telego",
-	description: "Desktop app for quickly re-posting social media posts to Telegram.",
+	summary: "Repost social media posts to Telegram.",
+	description: "A desktop app for me to drag-and-drop links onto to forward them to my Telegram channel.",
+	details: [
+		"Supports Twitter/X, FurAffinity (Bluesky planned).",
+		"Web scraping + regex.",
+	],
 	url: "https://github.com/Delnegend/social-2-telego",
-	badges: ["go", "wails", "nuxt", "sqlite", "tailwindcss", "shadcn-ui", "telegram", "web-scraping"],
-},
-{
+	badges: ["go", "wails", "nuxt", "sqlite", "tailwindcss", "shadcn-ui", "telegram"],
+}]
+
+const archived: Project[] = [{
 	title: "cf-ddns",
-	description: "Simple Cloudflare DDNS, only using Go's standard library (and another one for formatting the console output).",
+	summary: "Cloudflare DDNS client.",
+	description: "A lightweight Cloudflare DDNS client.",
+	details: [
+		"Looking up the DNS records to get the current public IP",
+		"Querying cloudflare.com/cdn-cgi/trace to get the actual public IP",
+		"Sends a request to Cloudflare API to update the DNS record if they're different."
+	],
 	url: "https://github.com/Delnegend/cf-ddns",
 	badges: ["go", "cloudflare"],
-}];
-
-const archived = [{
+},
+{
 	title: "TOWD",
-	description: "Tiny-office with Discord. A calendar, kanban board Discord bot + a web app.",
+	summary: "Tiny office with Discord.",
+	description: "A calendar and Kanban board Discord bot, because that's the only thing I could come up with when deciding on my graduation project.",
+	details: [
+		"Freely import/export calendars in iCalendar format.",
+		"Included a webapp for easier interaction.",
+	],
 	url: "https://github.com/Delnegend/towd",
 	badges: ["go", "typescript", "nuxt", "discord", "discordgo", "sqlite", "icalendar", "tailwindcss", "shadcn-ui"],
 },
 {
 	title: "avtxtr",
-	description: "Avatar extractor. Extracts users' avatars from various services.",
+	summary: "Extracts user avatar images from social media.",
+	description: "A web API server fetches user avatar images from social media.",
+	details: [
+		"Supports Facebook, Instagram, DeviantArt, FurAffinity, Gravatar, Reddit, Telegram, Twitter/X, YouTube.",
+	],
 	url: "https://github.com/Delnegend/avtxtr",
 	badges: ["go", "regex"],
 },
 {
 	title: "ffmpeg-progressbar",
-	description: "FFmpeg wrapper with a progress bar.",
+	summary: "FFmpeg CLI wrapper with a progress bar.",
+	description: "FFmpeg CLI wrapper that renders a progress bar and estimated time remaining in the terminal.",
 	url: "https://github.com/Delnegend/ffmpeg-progressbar",
 	badges: ["go", "python", "ffmpeg"],
 },
 {
 	title: "social-2-telegram",
-	description: "The (earlier) Python version of social-2-telego.",
+	summary: "Same as social-2-telego, but in Python.",
+	description: "The original Python implementation of the social-2-telego. Uses Selenium for scraping, then calls Telegram Bot API directly.",
+	details: [
+		"Rewrote in Go because it was slow and I need a GUI.",
+	],
 	url: "https://github.com/Delnegend/social-2-telegram",
 	badges: ["python", "regex", "telegram", "web-scraping", "selenium"],
 },
 {
 	title: "fshare-cli",
-	description: "A CLI-based user interface for interacting with fshare.vn.",
+	summary: "CLI CRUD app for fshare.vn.",
+	description: "CLI app for interacting with the file-hosting service fshare.vn. It utilizes the official Fshare API to allow users to perform various file and account management operations directly from the terminal, including login, listing files/folders, and downloading.",
 	url: "https://github.com/Delnegend/fshare-cli",
 	badges: ["python", "fshare", "regex"],
 },
 {
 	title: "KHPlayer",
-	description: "My very first \"large\" project. Bootstrapping Plyr.io player without touching any JavaScript, similar ,to how HTMX works.",
+	summary: "Plyr.io video player wrapper without touching JS.",
+	description: "A frontend JavaScript library created to make embedding and setting up Plyr.io video players without touching a line of JS. Initializes the player and adds playlist features using declarative HTML attributes.",
 	url: "https://github.com/Delnegend/social-2-telegram",
 	badges: ["plyr.io", "html", "css", "javascript"],
 }];
@@ -195,10 +271,7 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					<ProjectCard
 						v-for="project in maintaining"
 						:key="project.title"
-						:title="project.title"
-						:description="project.description"
-						:url="project.url"
-						:badges="project.badges" />
+						:project="project" />
 				</div>
 			</div>
 
@@ -212,10 +285,7 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					<ProjectCard
 						v-for="project in archived"
 						:key="project.title"
-						:title="project.title"
-						:description="project.description"
-						:url="project.url"
-						:badges="project.badges" />
+						:project="project" />
 				</div>
 				<Card>
 					<CardTitle class="px-5 py-4 text-center text-xl font-thin">
