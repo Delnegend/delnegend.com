@@ -200,7 +200,7 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					Delnegend
 				</div>
 				<div class="flex flex-row flex-wrap gap-1 text-3xl font-medium">
-					<span>10% Software Engineer,</span>
+					<span>10% Software Engineering,</span>
 					<span>90% Overengineering.</span>
 				</div>
 			</div>
