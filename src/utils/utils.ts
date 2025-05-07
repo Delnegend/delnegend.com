@@ -10,6 +10,6 @@ export interface Project {
 	summary: string;
 	description: string;
 	details?: string[];
-	url: string,
-	badges: string[],
+	url: string;
+	badges: string[];
 }
