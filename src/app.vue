@@ -16,7 +16,7 @@ import type { Project } from "./utils/utils";
 const contacts = [
 	["Email", "kien@delnegend.com", "mailto:kien@delnegend.com"],
 	["GitHub", "github.com/Delnegend", "https://github.com/Delnegend"],
-	["Discord", "@delnegend", "https://discordapp.com/users/577800591724642304"]
+	["Discord", "@delnegend", "https://discordapp.com/users/577800591724642304"],
 ];
 
 const maintaining: Project[] = [{
@@ -60,7 +60,7 @@ const maintaining: Project[] = [{
 	description: "A simple CLI to check for updates for apps with no auto-update on Windows, scrapes official sources and checks files' metadata to find newer versions and provides working direct download links (if available).",
 	details: [
 		"Scrapes websites, checks `.exe` file version resources, uses `--version` CLI argument where applicable.",
-		"Motivation: Automate the tedious process of manually checking for updates for various CLI tools and other applications."
+		"Motivation: Automate the tedious process of manually checking for updates for various CLI tools and other applications.",
 	],
 	url: "https://github.com/Delnegend/update",
 	badges: ["go", "regex"],
@@ -84,7 +84,7 @@ const maintaining: Project[] = [{
 		"Converts PNG/JPG to JPEG XL/AVIF",
 		"Runs the Artefact decoder on JPEGs",
 		"Runs the Differ tool on PNG sequences",
-		"And more if I feel like it."
+		"And more if I feel like it.",
 	],
 	url: "https://github.com/Delnegend/gallery-preprocessor-go",
 	badges: ["go", "wails", "vue", "tailwindcss", "shadcn-ui"],
@@ -113,7 +113,7 @@ const maintaining: Project[] = [{
 	],
 	url: "https://github.com/Delnegend/social-2-telego",
 	badges: ["go", "wails", "nuxt", "sqlite", "tailwindcss", "shadcn-ui", "telegram"],
-}]
+}];
 
 const archived: Project[] = [{
 	title: "cf-ddns",
@@ -122,7 +122,7 @@ const archived: Project[] = [{
 	details: [
 		"Looking up the DNS records to get the current public IP",
 		"Querying cloudflare.com/cdn-cgi/trace to get the actual public IP",
-		"Sends a request to Cloudflare API to update the DNS record if they're different."
+		"Sends a request to Cloudflare API to update the DNS record if they're different.",
 	],
 	url: "https://github.com/Delnegend/cf-ddns",
 	badges: ["go", "cloudflare"],

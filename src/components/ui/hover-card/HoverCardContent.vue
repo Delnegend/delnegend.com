@@ -4,26 +4,26 @@ import {
 	type HoverCardContentProps,
 	HoverCardPortal,
 	useForwardProps,
-} from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
-import { cn } from '~/utils/utils';
+} from "reka-ui";
+import { computed, type HTMLAttributes } from "vue";
+import { cn } from "~/utils/utils";
 
 const props = withDefaults(
-	defineProps<HoverCardContentProps & { class?: HTMLAttributes['class'] }>(),
+	defineProps<HoverCardContentProps & { class?: HTMLAttributes["class"] }>(),
 	{
 		sideOffset: 4,
 		class: undefined,
 	},
-)
+);
 
 const delegatedProps = computed(() => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, no-unused-vars
-	const { class: _, ...delegated } = props
+	const { class: _, ...delegated } = props;
 
-	return delegated
-})
+	return delegated;
+});
 
-const forwardedProps = useForwardProps(delegatedProps)
+const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>
