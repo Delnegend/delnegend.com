@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { ExternalLink } from "lucide-vue-next";
+import { ExternalLink, Info } from "lucide-vue-next";
+import { ref } from "vue";
 import { cn, type Project } from "~/utils/utils";
 import Badge from "./ui/Badge.vue";
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
@@ -13,25 +14,36 @@ const props = withDefaults(defineProps<{
 	class: undefined,
 });
 
+const openState = ref(false);
+
 </script>
 
 <template>
 	<HoverCard
+		v-model:open="openState"
 		:open-delay="0"
 		:close-delay="0">
 		<HoverCardTrigger>
 			<Card :class="cn('bg-transparent h-full', props.class)">
 				<CardHeader>
-					<CardTitle class="text-xl font-normal">
+					<CardTitle class="text-xl font-normal gap-x-4 flex justify-between items-center">
 						<a
 							v-if="props.project.url"
-							class="inline-flex items-center gap-1 no-underline"
+							class="no-underline"
 							:href="props.project.url"
 							target="_blank">
 							{{ props.project.title }}
-							<ExternalLink :size="14" />
+							<ExternalLink
+								:size="14"
+								class="inline-block ml-1" />
 						</a>
 						<span v-else>{{ props.project.title }}</span>
+						<button
+							aria-label="Toggle project info"
+							class="text-muted-foreground transition-colors hover:text-primary"
+							@click="openState = !openState">
+							<Info />
+						</button>
 					</CardTitle>
 					<CardDescription class="text-balance">
 						{{ props.project.summary }}
