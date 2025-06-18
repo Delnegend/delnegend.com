@@ -234,6 +234,7 @@ onBeforeMount(() => document.querySelector("html")?.classList.add("dark"));
 					</a>,&nbsp;<a
 						class="font-black text-[hsl(192_100%_41%)]"
 						href="https://go.dev/"
+						aria-label="Go's website"
 						target="_blank">
 						<img
 							src="./assets/gopher-dancing.webp"
