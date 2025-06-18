@@ -1,0 +1,19 @@
+{
+    "name": "delnegend",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [
+        "-v",
+        "global-pnpm-store:/home/delnegend/.pnpm-store"
+    ],
+    "postCreateCommand": "zsh .devcontainer/postinstall.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Vue.volar",
+                "bradlc.vscode-tailwindcss"
+            ]
+        }
+    }
+}
