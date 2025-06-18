@@ -59,8 +59,7 @@ const openState = ref(false);
 				{{ props.project.description }}
 			</div>
 			<ul
-				v-if="props.project.details"
-				class="space-y-2">
+				v-if="props.project.details">
 				<li
 					v-for="detail in props.project.details"
 					:key="detail"
