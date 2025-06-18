@@ -4,7 +4,7 @@ import autoprefixer from "autoprefixer";
 import tailwind from "tailwindcss";
 
 const title = "Delnegend";
-const description = "Delnegend's portfolio.";
+const description = "Delnegend's personal website/portfolio.";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
