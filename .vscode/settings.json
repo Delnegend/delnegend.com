@@ -1,0 +1,23 @@
+{
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[ts]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"tailwindCSS.experimental.classRegex": [
+		["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+		["cva\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+		[
+			"Tw \\=([^;]*);",
+			"(\"([^\"]*)\")|(\\'([^\\']*)\\')|(\\`([^\\`]*)\\`)"
+		],
+		[
+			"lassNames=\\{([^}]*)\\}",
+			"(\"([^\"]*)\")|(\\'([^\\']*)\\')|(\\`([^\\`]*)\\`)"
+		]
+	]
+}

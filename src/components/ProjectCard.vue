@@ -1,85 +1,71 @@
 <script lang="ts" setup>
-import { ExternalLink, Info } from "lucide-vue-next";
-import { ref } from "vue";
-import { cn, type Project } from "~/utils/utils";
-import Badge from "./ui/Badge.vue";
-import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { ref } from 'vue'
+import type { Project } from '~/data/projects'
+import { cn } from '~/utils/utils'
+import Badge from './Badge.vue'
 
-const props = withDefaults(defineProps<{
-	project: Project;
-	class?: string;
-}>(), {
-	url: undefined,
-	class: undefined,
-});
+const props = withDefaults(
+	defineProps<{
+		title: string
+		project: Project
+		class?: string
+	}>(),
+	{
+		url: undefined,
+		class: undefined
+	}
+)
 
-const openState = ref(false);
-
+const openState = ref(false)
 </script>
 
 <template>
-	<HoverCard
-		v-model:open="openState"
-		:open-delay="0"
-		:close-delay="0">
-		<HoverCardTrigger>
-			<Card :class="cn('bg-transparent h-full', props.class)">
-				<CardHeader>
-					<CardTitle class="text-xl font-normal gap-x-4 flex justify-between items-center">
-						<a
-							v-if="props.project.url"
-							class="no-underline"
-							:href="props.project.url"
-							target="_blank">
-							{{ props.project.title }}
-							<ExternalLink
-								:size="14"
-								class="inline-block ml-1" />
-						</a>
-						<span v-else>{{ props.project.title }}</span>
-						<button
-							aria-label="Toggle project info"
-							class="text-muted-foreground transition-colors hover:text-primary"
-							@click="openState = !openState">
-							<Info />
-						</button>
-					</CardTitle>
-					<CardDescription class="text-balance">
-						{{ props.project.summary }}
-					</CardDescription>
-				</CardHeader>
-			</Card>
-		</HoverCardTrigger>
+	<div
+		class="text-secondary-foreground flex flex-col gap-3 px-6 font-extralight"
+	>
+		<div
+			class="flex items-center justify-between gap-x-4 text-xl font-normal"
+		>
+			<a
+				v-if="props.project.repo"
+				class="no-underline"
+				:href="props.project.repo"
+				target="_blank"
+			>
+				{{ props.title }}
+				<ExternalLink :size="14" class="ml-1 inline-block" />
+			</a>
+			<span v-else>{{ props.title }}</span>
+			<button
+				aria-label="Toggle project info"
+				class="text-muted-foreground hover:text-primary transition-colors"
+				@click="openState = !openState"
+			>
+				<Info />
+			</button>
+		</div>
 
-		<HoverCardContent
-			:side-offset="12"
-			class="text-balance max-w-96 w-full font-extralight text-secondary-foreground leading-7 flex flex-col gap-3">
-			<div>
-				{{ props.project.description }}
-			</div>
-			<ul
-				v-if="props.project.details">
-				<li
-					v-for="detail in props.project.details"
-					:key="detail"
-					class="list-disc ml-4">
-					{{ detail }}
-				</li>
-			</ul>
-			<div
-				v-if="props.project.badges.length"
-				class="flex flex-wrap gap-2">
-				<Badge
-					v-for="badge in props.project.badges"
-					:key="badge"
-					variant="outline"
-					:class="cn('transition-colors', 'hover:[background:var(--bg)] hover:text-[--text] text-muted-foreground', badge)">
-					{{ badge }}
-				</Badge>
-			</div>
-		</HoverCardContent>
-	</HoverCard>
+		<div>
+			{{ props.project.description }}
+		</div>
+
+		<div v-if="props.project.badges.length" class="flex flex-wrap gap-2">
+			<Badge
+				v-for="badge in props.project.badges"
+				:key="badge"
+				variant="outline-solid"
+				:class="
+					cn(
+						'transition-colors',
+						'text-muted-foreground hover:text-[--text] hover:[background:var(--bg)]',
+						badge
+					)
+				"
+			>
+				{{ badge }}
+			</Badge>
+		</div>
+	</div>
 </template>
 
 <style scoped>
@@ -144,7 +130,11 @@ const openState = ref(false);
 }
 
 .tauri {
-	--bg: linear-gradient(90deg, hsl(186, 72%, 50%) 0%, hsl(42, 100%, 60%) 100%);
+	--bg: linear-gradient(
+		90deg,
+		hsl(186, 72%, 50%) 0%,
+		hsl(42, 100%, 60%) 100%
+	);
 	--text: hsl(0, 0%, 0%);
 }
 

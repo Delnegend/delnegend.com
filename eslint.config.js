@@ -1,18 +1,23 @@
-import hagemanto from "eslint-plugin-hagemanto";
-import pluginVue from "eslint-plugin-vue";
+import hagemanto from 'eslint-plugin-hagemanto'
+import pluginVue from 'eslint-plugin-vue'
 
 export default [
-	{ name: "yomuyume/files", files: ["src/**/*.{ts,vue}"] },
-	{ name: "yomuyume/ignores", ignores: ["**/*.d.ts", ".nuxt", "*.config.js", ".output"] },
+	{ name: 'yomuyume/files', files: ['src/**/*.{ts,vue}'] },
+	{
+		name: 'yomuyume/ignores',
+		ignores: ['**/*.d.ts', '.nuxt', '*.config.js', '.output']
+	},
 
 	...hagemanto({
 		enableJsx: false,
-		vueConfig: pluginVue.configs["flat/recommended"],
+		vueConfig: pluginVue.configs['flat/recommended'],
+		enableTailwind: false,
+		styler: 'stylistic'
 	}),
 
 	{
 		rules: {
-			"tailwindcss/no-custom-classname": "off",
-		},
-	},
-];
+			'tailwindcss/no-custom-classname': 'off'
+		}
+	}
+]

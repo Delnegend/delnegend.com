@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import { useSlots, type VNode } from "vue";
+import { useSlots, type VNode } from 'vue'
 
-import { cn } from "~/utils/utils";
+import { cn } from '~/lib/utils'
 
 interface LineShadowTextProps {
-	shadowColor?: string;
-	as?: keyof HTMLElement;
-	class?: string;
+	shadowColor?: string
+	as?: keyof HTMLElement
+	class?: string
 }
 
 const props = withDefaults(defineProps<LineShadowTextProps>(), {
-	shadowColor: "black",
-	as: "span" as keyof HTMLElement,
-	class: "",
-});
+	shadowColor: 'black',
+	as: 'span' as keyof HTMLElement,
+	class: ''
+})
 
-const slots = useSlots() as Record<string, ()=> VNode[]>;
+const slots = useSlots() as Record<string, () => VNode[]>
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, @typescript-eslint/strict-boolean-expressions
-const children = slots.default ? slots.default()[0]?.children : null;
+const children = slots.default ? slots.default()[0]?.children : null
 
-const content = typeof children === "string" ? children : null;
+const content = typeof children === 'string' ? children : null
 
 if (!content) {
-	throw new Error("LineShadowText only accepts string content");
+	throw new Error('LineShadowText only accepts string content')
 }
 </script>
 
@@ -30,17 +30,19 @@ if (!content) {
 	<component
 		:is="as"
 		class="shadow-color"
-		:class="cn(
-			'relative z-0 inline-flex',
-			'after:absolute after:left-[0.1em] after:top-[0.1em] after:-z-10',
-			'after:bg-[linear-gradient(45deg,transparent_45%,var(--shadow-color)_45%,var(--shadow-color)_55%,transparent_0)]',
-			'after:bg-[length:0.06em_0.06em] after:bg-clip-text after:text-transparent',
-			'after:content-[attr(data-text)]',
-			'animate-line-shadow',
-			props.class,
-		)
+		:class="
+			cn(
+				'relative z-0 inline-flex',
+				'after:absolute after:top-[0.1em] after:left-[0.1em] after:-z-10',
+				'after:bg-[linear-gradient(45deg,transparent_45%,var(--shadow-color)_45%,var(--shadow-color)_55%,transparent_0)]',
+				'after:bg-size-[0.06em_0.06em] after:bg-clip-text after:text-transparent',
+				'after:content-[attr(data-text)]',
+				'animate-line-shadow',
+				props.class
+			)
 		"
-		:data-text="content">
+		:data-text="content"
+	>
 		<slot />
 	</component>
 </template>
