@@ -30,7 +30,7 @@ export const projects = {
 	Artefact: {
 		repo: 'https://artefact.delnegend.com',
 		description:
-			'A specialized JPEG image decoder designed to enhance image quality by removing compression artifacts, available as a web app that runs directly in your browser.',
+			'A specialized JPEG image decoder designed to enhance visual quality by removing compression artifacts, available as a web app that runs directly in your browser.',
 		badges: [
 			'rust',
 			'typescript',
@@ -76,13 +76,13 @@ export const projects = {
 	'gallery-preprocessor-go': {
 		repo: 'https://github.com/Delnegend/gallery-preprocessor-go',
 		description:
-			'A user-friendly desktop app that allows you to drag-and-drop images for batch processing tasks, such as converting formats, enhancing quality, or applying compression techniques.',
+			'A user-friendly desktop app that allows you to drag-and-drop images for batch processing tasks.',
 		badges: ['go', 'wails', 'vue', 'tailwindcss', 'shadcn-ui']
 	},
 	'upptime-embed': {
 		repo: 'https://github.com/Delnegend/upptime-embed',
 		description:
-			'An alternative, modern status page for websites that efficiently displays service uptime information by directly processing data from a GitHub-powered status system.',
+			'An alternative, modern status page for websites that displays service uptime information by directly processing data from a GitHub-powered status system.',
 		badges: [
 			'go',
 			'typescript',
@@ -101,7 +101,7 @@ export const projects = {
 	'social-2-telego': {
 		repo: 'https://github.com/Delnegend/social-2-telego',
 		description:
-			'A desktop app that simplifies sharing content from social media platforms like Twitter/X and FurAffinity directly to your Telegram channel.',
+			'A desktop app that simplifies sharing content from social media platforms like Twitter/X and FurAffinity directly to a Telegram channel.',
 		badges: [
 			'go',
 			'wails',
@@ -121,7 +121,7 @@ export const projects = {
 	TOWD: {
 		repo: 'https://github.com/Delnegend/towd',
 		description:
-			'A Discord bot designed to help teams manage their schedules and tasks, offering calendar and Kanban board functionalities with web-based access for easier interaction.',
+			'A Discord bot designed to help teams manage their schedules and tasks using calendar and Kanban board.',
 		badges: [
 			'go',
 			'typescript',

@@ -20,9 +20,7 @@ const openState = ref(false)
 </script>
 
 <template>
-	<div
-		class="text-secondary-foreground flex flex-col gap-3 px-6 font-extralight"
-	>
+	<div class="text-secondary-foreground flex flex-col gap-3 font-extralight">
 		<div
 			class="flex items-center justify-between gap-x-4 text-xl font-normal"
 		>
@@ -57,7 +55,7 @@ const openState = ref(false)
 				:class="
 					cn(
 						'transition-colors',
-						'text-muted-foreground hover:text-[--text] hover:[background:var(--bg)]',
+						'text-muted-foreground hover:text-(--text) hover:[background:var(--bg)]',
 						badge
 					)
 				"
