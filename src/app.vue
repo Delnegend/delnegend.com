@@ -185,14 +185,6 @@ onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
 						>Windows 98, Yahoo Messenger.</AccordionContent
 					>
 				</AccordionItem>
-				<AccordionItem value="gaming">
-					<AccordionTrigger>Gaming?</AccordionTrigger>
-					<AccordionContent>
-						All-time favorites (chronological): Plants vs Zombies,
-						Bejeweled 3, Minecraft, Killing Floor 2, Left 4 Dead 2,
-						Bloon TD 6, Risk of Rain 2.
-					</AccordionContent>
-				</AccordionItem>
 			</Accordion>
 
 			<h1>Links</h1>
