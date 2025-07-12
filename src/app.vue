@@ -72,7 +72,7 @@ onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
 				>
 				&VeryThinSpace;
 				<Sheet>
-					<SheetTrigger>
+					<SheetTrigger aria-label="What is Rust and Go?">
 						<CircleQuestionMark class="inline cursor-pointer" />
 					</SheetTrigger>
 					<SheetContent class="overflow-y-auto p-6">
