@@ -24,8 +24,6 @@ import { projectBadges } from './data/projectBadges'
 
 const skillRepos = ref<(typeof skills)[number]['repos'] | null>(null)
 const sheetOpen = ref(false)
-
-// onBeforeMount(() => document.querySelector('html')?.classList.remove('dark'))
 </script>
 
 <template>
