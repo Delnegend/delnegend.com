@@ -60,8 +60,7 @@ export default defineNuxtConfig({
 				// { property: "twitter:image", content: "https://delnegend.com/banner.png" },
 			],
 			htmlAttrs: {
-				lang: 'en',
-				class: 'dark'
+				lang: 'en'
 			}
 		}
 	}
