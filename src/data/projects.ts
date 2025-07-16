@@ -5,6 +5,19 @@ export interface Project {
 }
 
 export const projects = {
+	Biolak: {
+		repo: 'https://new.biolak.vn',
+		description:
+			'An e-commerce platform specializing in health and beauty products.',
+		badges: [
+			'typescript',
+			'react',
+			'nextjs',
+			'payload-cms',
+			'tailwindcss',
+			'shadcn-ui'
+		]
+	},
 	Yomuyume: {
 		repo: 'https://github.com/Liminova/yomuyume',
 		description:
@@ -165,5 +178,3 @@ export const projects = {
 		badges: ['plyr.io', 'html', 'css', 'javascript']
 	}
 } as const satisfies Record<string, Project>
-
-export type AvailableProjects = Array<keyof typeof projects>

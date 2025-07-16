@@ -1,14 +1,15 @@
-import type { AvailableProjects } from './projects'
+import type { projects } from './projects'
 
 export interface Skill {
 	name: string
-	repos: AvailableProjects
+	repos: Array<keyof typeof projects>
 }
 
 export const skills = [
 	{
 		name: 'Backend Development',
 		repos: [
+			'Biolak',
 			'Yomuyume',
 			'Artefact',
 			'Update',
@@ -28,6 +29,7 @@ export const skills = [
 	{
 		name: 'Frontend Development',
 		repos: [
+			'Biolak',
 			'Yomuyume',
 			'Artefact',
 			'Kiness Social/Admin',
@@ -92,11 +94,18 @@ export const skills = [
 	},
 	{
 		name: 'System Design & Architecture',
-		repos: ['Yomuyume', 'Artefact', 'Kiness Social/Admin', 'Differ']
+		repos: [
+			'Biolak',
+			'Yomuyume',
+			'Artefact',
+			'Kiness Social/Admin',
+			'Differ'
+		]
 	},
 	{
 		name: 'UI/UX Implementation',
 		repos: [
+			'Biolak',
 			'Yomuyume',
 			'Artefact',
 			'Kiness Social/Admin',

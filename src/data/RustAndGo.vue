@@ -23,6 +23,8 @@
 			could attack.
 		</p>
 
+		<div class="border-b-4 border-double" />
+
 		<h2>Part 2: An Easier, but Slower, Solution</h2>
 
 		<p>
@@ -43,6 +45,8 @@
 			incredibly fast (like video games or the core engines of Google
 			Search), this slowdown was a big deal.
 		</p>
+
+		<div class="border-b-4 border-double" />
 
 		<h2>Part 3: The Modern Solutions - Fast AND Safe</h2>
 
@@ -85,6 +89,8 @@
 			simpler and easier to work with.
 		</p>
 
+		<div class="border-b-4 border-double" />
+
 		<h2>Part 4: The Trade-Off and The Lingo</h2>
 
 		<p>So, programmers have a choice:</p>
@@ -102,6 +108,8 @@
 			electric sports car—it's blisteringly fast for almost every need and
 			much easier to get up and running.
 		</p>
+
+		<div class="border-b-4 border-double" />
 
 		<h2>Finally, the slang:</h2>
 

@@ -5,6 +5,8 @@ import ExtLink from '~/components/ExtLink.vue'
 import LineShadowText from '~/components/LineShadowText.vue'
 import ParticlesBg from '~/components/ParticlesBg.vue'
 import ProjectCard from '~/components/ProjectCard.vue'
+import Title from '~/components/Title.vue'
+import { cn } from './lib/utils'
 import {
 	Accordion,
 	AccordionContent,
@@ -17,31 +19,29 @@ import { contacts } from '~/data/contacts'
 import { projects } from '~/data/projects'
 import RustAndGo from '~/data/RustAndGo.vue'
 import { skills } from '~/data/skills'
+import Badge from './components/Badge.vue'
+import { projectBadges } from './data/projectBadges'
 
 const skillRepos = ref<(typeof skills)[number]['repos'] | null>(null)
 const sheetOpen = ref(false)
 
-onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
+// onBeforeMount(() => document.querySelector('html')?.classList.remove('dark'))
 </script>
 
 <template>
 	<div>
-		<ParticlesBg
+		<!-- <ParticlesBg
 			class="fixed top-0 left-0 -z-10 h-dvh w-dvw bg-black"
 			:quantity="200"
-		/>
+		/> -->
 
 		<div
-			class="mx-auto my-20 flex w-[90%] max-w-[60rem] flex-col items-center justify-center gap-20"
+			class="mx-auto my-20 flex w-[90%] max-w-5xl flex-col items-center justify-center gap-20"
 		>
-			<h1>Who am I</h1>
+			<Title title="Who am I" />
 
-			<p class="text-muted-foreground text-center text-balance">
-				<span class="text-primary font-semibold"
-					>Someone likes to build softwares</span
-				><br />
-				10% Actual engineering,<br />
-				90% Overengineering,<br />
+			<p class="text-primary text-center text-balance">
+				I'm <b>Kien</b>, like to build quality softwares
 				a&VeryThinSpace;
 				<span class="font-black text-[hsl(18_100%_48%)]">
 					<img
@@ -51,7 +51,7 @@ onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
 					/>
 					<LineShadowText
 						class="italic"
-						shadow-color="hsl(18 100% 45%)"
+						shadow-color="hsl(18 100% 60%)"
 					>
 						Rustacean
 					</LineShadowText>
@@ -73,7 +73,9 @@ onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
 				&VeryThinSpace;
 				<Sheet>
 					<SheetTrigger aria-label="What is Rust and Go?">
-						<CircleQuestionMark class="inline cursor-pointer" />
+						<CircleQuestionMark
+							class="inline cursor-pointer align-text-bottom"
+						/>
 					</SheetTrigger>
 					<SheetContent class="overflow-y-auto p-6">
 						<RustAndGo />
@@ -81,55 +83,58 @@ onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
 				</Sheet>
 			</p>
 
-			<div class="text-center">
-				<h1>Say my name</h1>
-				<span class="text-muted-foreground">You're goddamn right</span>
-			</div>
-
-			<p class="text-center text-balance">
-				<span class="text-muted-foreground">It's </span>
-				<span class="font-bold">Kien</span>
-				<span class="text-muted-foreground"
-					>, Delnegend is an alias, already registered the domain, use
-					it for a bunch of important stuffs, can't change to
-					something more readable.</span
-				>
-			</p>
-
 			<Sheet :open="sheetOpen" @update:open="sheetOpen = $event">
 				<SheetContent class="flex flex-col gap-4 overflow-y-auto p-6">
 					<ProjectCard
-						v-for="repo in skillRepos"
+						v-for="(repo, i) in skillRepos"
 						:key="repo"
 						:title="repo"
 						:project="projects[repo]"
-						class="w-full"
+						:class="
+							cn(
+								'w-full border-double',
+								i !== (skillRepos?.length ?? 0) - 1 &&
+									'border-b-4 pb-4'
+							)
+						"
 					/>
 				</SheetContent>
 			</Sheet>
 
-			<div class="text-center">
-				<h1>What I do</h1>
-				<span class="text-muted-foreground">But not limited to</span>
+			<Title title="What I do" subtitle="But not limited to" />
+
+			<div
+				class="grid w-full grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-x-4 gap-y-3"
+			>
+				<Button
+					variant="outline"
+					class="text-lg"
+					v-for="skill in skills"
+					:key="skill.name"
+					@click="
+						() => {
+							skillRepos = skill.repos
+							sheetOpen = true
+						}
+					"
+				>
+					{{ skill.name }}
+				</Button>
 			</div>
 
-			<div class="flex flex-col items-center gap-10">
-				<div class="flex flex-wrap justify-center gap-3">
-					<Button
-						variant="outline"
-						class="text-lg"
-						v-for="skill in skills"
-						:key="skill.name"
-						@click="
-							() => {
-								skillRepos = skill.repos
-								sheetOpen = true
-							}
-						"
-					>
-						{{ skill.name }}
-					</Button>
-				</div>
+			<Title
+				title="A bunch of badges"
+				subtitle="Technologies, frameworks, tools, etc."
+			/>
+			<div class="flex flex-wrap items-center justify-center gap-2">
+				<Badge
+					v-for="badge in projectBadges"
+					:key="badge"
+					:class="badge"
+					variant="outline-solid"
+				>
+					{{ badge }}
+				</Badge>
 			</div>
 
 			<div class="text-center">
@@ -160,12 +165,9 @@ onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
 						Difference between CS and ICT?
 					</AccordionTrigger>
 					<AccordionContent>
-						"Theory will take you only so far" (Ernest Lawrence,
-						Oppenheimer film, 2023).<br />
-
-						We focus on the practical use and management of
-						computing systems and software in real-world contexts
-						instead of the theories.
+						ICT focus on the practical use and management of
+						computing systems and software in real-world scenarios,
+						instead of the theories like CS.
 					</AccordionContent>
 				</AccordionItem>
 				<AccordionItem value="what-other-can-do">
@@ -185,9 +187,13 @@ onBeforeMount(() => document.querySelector('html')?.classList.add('dark'))
 						>Windows 98, Yahoo Messenger.</AccordionContent
 					>
 				</AccordionItem>
+				<AccordionItem value="games">
+					<AccordionTrigger>Do you play games?</AccordionTrigger>
+					<AccordionContent>Roguelikes, roguelites.</AccordionContent>
+				</AccordionItem>
 			</Accordion>
 
-			<h1>Links</h1>
+			<Title title="Links" subtitle="Contact me" />
 
 			<ul>
 				<li v-for="contact in contacts" :key="contact.name">
