@@ -11,7 +11,7 @@
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
-		"lint": "oxlint --import-plugin -D correctness -D perf && prettier -l -w \"**/*.{js,ts,vue,json}\""
+		"lint": "oxlint --import-plugin -D correctness -D perf && prettier -l -w \"**/*.{js,ts,vue,json,css}\""
 	},
 	"dependencies": {
 		"@vueuse/core": "^13.5.0",
