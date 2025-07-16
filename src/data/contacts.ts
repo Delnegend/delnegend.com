@@ -12,8 +12,8 @@ export const contacts: Contact[] = [
 	},
 	{
 		name: 'Resume',
-		value: 'delnegend.com/resume.pdf',
-		link: 'https://delnegend.com/resume.pdf'
+		value: 'delnegend.com/resume',
+		link: 'https://delnegend.com/resume'
 	},
 	{
 		name: 'Email',
