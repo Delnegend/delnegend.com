@@ -155,12 +155,12 @@ const sheetOpen = ref(false)
 		<Title title="Links" subtitle="Contact me" sticker="link" />
 
 		<ul>
-			<li v-for="contact in contacts" :key="contact.name">
+			<li v-for="contact in contacts" :key="contact.name" class="text-xl">
 				<span class="font-medium">{{ contact.name }}:&nbsp;</span>
 				<ExtLink
 					:href="contact.link"
 					target="_blank"
-					class="flex items-center gap-2 text-sm font-light"
+					class="flex items-center gap-2 font-light"
 					>{{ contact.value }}
 				</ExtLink>
 			</li>
