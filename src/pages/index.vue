@@ -15,7 +15,7 @@ import { Button } from '~/components/ui/button'
 import { Sheet, SheetContent, SheetTitle } from '~/components/ui/sheet'
 import Footer from '~/data/Footer.vue'
 import { contacts } from '~/data/contacts'
-import { projectBadges } from '~/data/projectBadges'
+import { badgeLinks, projectBadges } from '~/data/projectBadges'
 import { projects } from '~/data/projects'
 import { skills } from '~/data/skills'
 
@@ -87,12 +87,14 @@ const sheetOpen = ref(false)
 		/>
 		<div class="flex flex-wrap items-center justify-center gap-2">
 			<Badge
-				:badge="badge"
 				v-for="badge in projectBadges"
+				:href="badgeLinks[badge]"
 				:key="badge"
 				:class="badge"
 				variant="outline-solid"
-			/>
+			>
+				{{ badge }}
+			</Badge>
 		</div>
 
 		<Title

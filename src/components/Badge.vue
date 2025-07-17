@@ -1,43 +1,54 @@
 <script setup lang="ts">
+import { cva, type VariantProps } from 'class-variance-authority'
 import type { HTMLAttributes } from 'vue'
-import { badgeLinks, type ProjectBadge } from '~/data/projectBadges'
 import { cn } from '~/lib/utils'
 
 const props = withDefaults(
 	defineProps<{
 		class?: HTMLAttributes['class']
-		variant?: 'default' | 'secondary' | 'destructive' | 'outline-solid'
-		badge: ProjectBadge
+		variant?: VariantProps<typeof badgeVariants>['variant']
+		href?: string
 	}>(),
 	{
 		class: '',
 		variant: 'default'
 	}
 )
+
+const badgeVariants = cva(
+	'focus:ring-ring inline-flex items-center border border-dashed px-2.5 py-0.5 text-base font-semibold transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-hidden',
+	{
+		variants: {
+			variant: {
+				default:
+					'bg-primary text-primary-foreground hover:bg-primary/80 border-transparent shadow-sm',
+				secondary:
+					'bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent',
+				destructive:
+					'bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent shadow-sm',
+				'outline-solid':
+					'hover:border-solid hover:text-(--text) hover:[background:var(--bg)]'
+			}
+		}
+	}
+)
 </script>
 
 <template>
 	<a
-		:href="badgeLinks[props.badge]"
+		v-if="!!props.href"
+		:href="props.href"
 		target="_blank"
-		:class="
-			cn(
-				'focus:ring-ring inline-flex items-center border border-dashed px-2.5 py-0.5 text-base font-semibold transition-colors hover:border-solid hover:text-(--text) hover:[background:var(--bg)] focus:ring-2 focus:ring-offset-2 focus:outline-hidden',
-				{
-					'bg-primary text-primary-foreground hover:bg-primary/80 border-transparent shadow-sm':
-						props.variant === 'default',
-					'bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent':
-						props.variant === 'secondary',
-					'bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent shadow-sm':
-						props.variant === 'destructive',
-					'text-foreground': props.variant === 'outline-solid'
-				},
-				props.class
-			)
-		"
+		:class="cn(badgeVariants({ variant: props.variant }), props.class)"
 	>
-		{{ props.badge }}
+		<slot />
 	</a>
+	<div
+		:class="cn(badgeVariants({ variant: props.variant }), props.class)"
+		v-else
+	>
+		<slot />
+	</div>
 </template>
 
 <style scoped>

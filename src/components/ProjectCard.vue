@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import Badge from './Badge.vue'
 import ExtLink from './ExtLink.vue'
-import { ref } from 'vue'
-import type { ProjectBadge } from '~/data/projectBadges'
+import { badgeLinks, type ProjectBadge } from '~/data/projectBadges'
 import type { Project } from '~/data/projects'
 import { cn } from '~/lib/utils'
 
@@ -36,20 +35,36 @@ const props = withDefaults(
 		>
 			{{ props.title }}
 		</ExtLink>
-		<span v-else>{{ props.title }}</span>
+		<span class="text-2xl" v-else>{{ props.title }}</span>
 
 		<p class="!text-lg">
 			{{ props.project.description }}
 		</p>
 
-		<div v-if="props.project.badges.length" class="flex flex-wrap gap-2">
+		<div class="flex flex-wrap gap-1">
 			<Badge
-				:badge="badge as ProjectBadge"
+				v-if="typeof props.project.status === 'string'"
+				variant="default"
+			>
+				{{ props.project.status }}
+			</Badge>
+			<Badge
+				v-if="Array.isArray(props.project.status)"
+				variant="default"
+				v-for="status in props.project.status"
+			>
+				{{ status }}
+			</Badge>
+
+			<Badge
+				:href="badgeLinks[badge as ProjectBadge]"
 				v-for="badge in props.project.badges"
 				:key="badge"
 				variant="outline-solid"
 				:class="cn('text-muted-foreground', badge)"
-			/>
+			>
+				{{ badge }}
+			</Badge>
 		</div>
 	</div>
 </template>

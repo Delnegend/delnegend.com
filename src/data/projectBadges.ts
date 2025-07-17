@@ -85,5 +85,7 @@ export const badgeLinks: Record<ProjectBadge, string> = {
 	'plyr.io': 'https://plyr.io/',
 	html: 'https://en.wikipedia.org/wiki/HTML',
 	css: 'https://en.wikipedia.org/wiki/CSS',
-	javascript: 'https://en.wikipedia.org/wiki/JavaScript'
+	javascript: 'https://en.wikipedia.org/wiki/JavaScript',
+	tokio: 'https://tokio.rs/',
+	slint: 'https://slint.dev/'
 }
