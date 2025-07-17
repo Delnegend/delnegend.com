@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import type { ProjectBadge } from '~/data/projectBadges'
 import type { Project } from '~/data/projects'
 import { cn } from '~/lib/utils'
 import Badge from './Badge.vue'
@@ -16,53 +17,39 @@ const props = withDefaults(
 		class: undefined
 	}
 )
-
-const openState = ref(false)
 </script>
 
 <template>
 	<div
 		:class="
 			cn(
-				'text-secondary-foreground flex flex-col gap-3 font-extralight',
+				'text-secondary-foreground flex flex-col gap-3 font-extralight text-balance',
 				props.class
 			)
 		"
 	>
-		<div
-			class="flex items-center justify-between gap-x-4 text-xl font-normal"
+		<ExtLink
+			v-if="props.project.repo"
+			:href="props.project.repo"
+			target="_blank"
+			class="!text-2xl"
 		>
-			<ExtLink
-				v-if="props.project.repo"
-				class="no-underline"
-				:href="props.project.repo"
-				target="_blank"
-			>
-				{{ props.title }}
-			</ExtLink>
-			<span v-else>{{ props.title }}</span>
-			<button
-				aria-label="Toggle project info"
-				class="text-muted-foreground hover:text-primary transition-colors"
-				@click="openState = !openState"
-			>
-				<Info />
-			</button>
-		</div>
+			{{ props.title }}
+		</ExtLink>
+		<span v-else>{{ props.title }}</span>
 
-		<div>
+		<p class="!text-lg">
 			{{ props.project.description }}
-		</div>
+		</p>
 
 		<div v-if="props.project.badges.length" class="flex flex-wrap gap-2">
 			<Badge
+				:badge="badge as ProjectBadge"
 				v-for="badge in props.project.badges"
 				:key="badge"
 				variant="outline-solid"
 				:class="cn('text-muted-foreground', badge)"
-			>
-				{{ badge }}
-			</Badge>
+			/>
 		</div>
 	</div>
 </template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { badgeLinks, type ProjectBadge } from '~/data/projectBadges'
 
 import { cn } from '~/lib/utils'
 
@@ -7,6 +8,7 @@ const props = withDefaults(
 	defineProps<{
 		class?: HTMLAttributes['class']
 		variant?: 'default' | 'secondary' | 'destructive' | 'outline-solid'
+		badge: ProjectBadge
 	}>(),
 	{
 		class: '',
@@ -16,10 +18,12 @@ const props = withDefaults(
 </script>
 
 <template>
-	<div
+	<a
+		:href="badgeLinks[props.badge]"
+		target="_blank"
 		:class="
 			cn(
-				'focus:ring-ring inline-flex items-center border border-dashed px-2.5 py-0.5 text-xs font-semibold transition-colors hover:border-solid hover:text-(--text) hover:[background:var(--bg)] focus:ring-2 focus:ring-offset-2 focus:outline-hidden',
+				'focus:ring-ring inline-flex items-center border border-dashed px-2.5 py-0.5 text-base font-semibold transition-colors hover:border-solid hover:text-(--text) hover:[background:var(--bg)] focus:ring-2 focus:ring-offset-2 focus:outline-hidden',
 				{
 					'bg-primary text-primary-foreground hover:bg-primary/80 border-transparent shadow-sm':
 						props.variant === 'default',
@@ -33,8 +37,8 @@ const props = withDefaults(
 			)
 		"
 	>
-		<slot />
-	</div>
+		{{ props.badge }}
+	</a>
 </template>
 
 <style scoped>
@@ -107,6 +111,17 @@ const props = withDefaults(
 	--text: hsl(0, 0%, 0%);
 }
 
+.pwa {
+	--bg: linear-gradient(
+		90deg,
+		hsl(0, 0%, 24%) 0%,
+		hsl(264, 86%, 42%) 35%,
+		hsl(264, 86%, 42%) 65%,
+		hsl(0, 0%, 24%) 100%
+	);
+	--text: hsl(0, 0%, 100%);
+}
+
 .tailwindcss {
 	--bg: hsl(196, 100%, 50%);
 	--text: hsl(0, 0%, 100%);
@@ -145,5 +160,28 @@ const props = withDefaults(
 .payload-cms {
 	--bg: hsl(0, 0%, 0%);
 	--text: hsl(0, 0%, 100%);
+}
+
+.podman {
+	--bg: hsl(217, 63%, 47%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.docker {
+	--bg: hsl(220, 85%, 52%);
+	--text: hsl(0, 0%, 100%);
+}
+
+.html {
+	--bg: hsl(19, 88%, 54%);
+	--text: hsl(0, 0%, 100%);
+}
+.css {
+	--bg: hsl(222, 88%, 55%);
+	--text: hsl(0, 0%, 100%);
+}
+.shadcn-ui {
+	--bg: hsl(0, 0%, 4%);
+	--text: hsl(0, 0%, 98%);
 }
 </style>

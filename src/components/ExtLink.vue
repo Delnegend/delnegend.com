@@ -20,7 +20,7 @@ const props = withDefaults(
 	<a
 		:href="props.href"
 		:target="props.target"
-		class="hover:text-primary inline-flex items-center gap-1 transition-colors"
+		class="hover:text-primary inline-flex items-center gap-1 underline underline-offset-4 transition-colors"
 		:class="props.class"
 	>
 		<slot />

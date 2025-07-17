@@ -37,7 +37,7 @@ export const projects = {
 			'web-worker',
 			'tailwindcss',
 			'shadcn-ui',
-			'material-ui'
+			'material-design'
 		]
 	},
 	Artefact: {

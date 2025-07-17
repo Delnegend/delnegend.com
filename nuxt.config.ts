@@ -3,7 +3,7 @@ import path from 'node:path'
 import tailwindcss from '@tailwindcss/vite'
 
 const title = 'Delnegend'
-const description = "Delnegend's personal website/portfolio."
+const description = 'Hewo, world!'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
