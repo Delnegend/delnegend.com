@@ -18,7 +18,6 @@ import { contacts } from '~/data/contacts'
 import { projectBadges } from '~/data/projectBadges'
 import { projects } from '~/data/projects'
 import { skills } from '~/data/skills'
-import { cn } from '~/lib/utils'
 
 const selectedSkill = ref('')
 const skillRepos = ref<(typeof skills)[number]['repos'] | null>(null)
@@ -105,50 +104,46 @@ const sheetOpen = ref(false)
 
 		<Accordion type="single" collapsible class="w-full max-w-[40rem]">
 			<AccordionItem value="when-start">
-				<AccordionTrigger>
-					When did you start all of these?
-				</AccordionTrigger>
+				<AccordionTrigger> Since when? </AccordionTrigger>
 				<AccordionContent>Since 2018.</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value="education">
 				<AccordionTrigger>Education?</AccordionTrigger>
 				<AccordionContent>
 					Bachelor's degree in Information and Communication
-					Technologies (ICT)<br />
+					Technologies,<br />
 					University of Science and Technology of Hanoi, Vietnam, 2021
 					- 2024
 				</AccordionContent>
 			</AccordionItem>
-			<AccordionItem value="difference-cs-ict">
-				<AccordionTrigger>
-					Difference between CS and ICT?
-				</AccordionTrigger>
-				<AccordionContent>
-					ICT focus on the practical use and management of computing
-					systems and software in real-world scenarios, instead of the
-					theories like CS.
-				</AccordionContent>
-			</AccordionItem>
-			<AccordionItem value="what-other-can-do">
-				<AccordionTrigger>
-					What other things can you do?
-				</AccordionTrigger>
-				<AccordionContent>
-					Photoshop, Premiere Pro as a hobbyist; tinkering with
-					electronics and fixing them.
-				</AccordionContent>
-			</AccordionItem>
-			<AccordionItem value="early-internet">
-				<AccordionTrigger>
-					Earliest memory of the internet?
-				</AccordionTrigger>
-				<AccordionContent
-					>Windows 98, Yahoo Messenger.</AccordionContent
+			<AccordionItem value="freelance">
+				<AccordionTrigger
+					>Take commissions, seeking for a j*b?</AccordionTrigger
 				>
+				<AccordionContent>No, I'm e*ployed.</AccordionContent>
 			</AccordionItem>
-			<AccordionItem value="games">
-				<AccordionTrigger>Do you play games?</AccordionTrigger>
-				<AccordionContent>Roguelikes, roguelites.</AccordionContent>
+			<AccordionItem value="game-genre">
+				<AccordionTrigger>Game genres?</AccordionTrigger>
+				<AccordionContent>Roguelike/roguelite.</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value="other-industries">
+				<AccordionTrigger
+					>Interested in other industries?</AccordionTrigger
+				>
+				<AccordionContent>Creative.</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value="ai-opinion">
+				<AccordionTrigger>AI/ML opinion?</AccordionTrigger>
+				<AccordionContent>
+					<ExtLink
+						href="https://youtu.be/P_fHJIYENdI?si=kQqEZj3EjjHrXmMb"
+						target="_blank"
+					>
+						As a productivity-boosting/researching tool
+					</ExtLink>
+					? Yes.<br />
+					For spamming meaningless content? GTFO.<br />
+				</AccordionContent>
 			</AccordionItem>
 		</Accordion>
 
