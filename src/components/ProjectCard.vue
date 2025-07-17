@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+import Badge from './Badge.vue'
+import ExtLink from './ExtLink.vue'
 import { ref } from 'vue'
 import type { ProjectBadge } from '~/data/projectBadges'
 import type { Project } from '~/data/projects'
 import { cn } from '~/lib/utils'
-import Badge from './Badge.vue'
-import ExtLink from './ExtLink.vue'
 
 const props = withDefaults(
 	defineProps<{

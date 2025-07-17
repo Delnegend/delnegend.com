@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { badgeLinks, type ProjectBadge } from '~/data/projectBadges'
-
 import { cn } from '~/lib/utils'
 
 const props = withDefaults(
