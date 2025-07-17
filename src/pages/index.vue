@@ -81,7 +81,7 @@ const sheetOpen = ref(false)
 
 		<Title
 			title="Badges"
-			subtitle="Technologies, frameworks, tools, etc. I have experience with"
+			subtitle="A non-exhaustive list of technologies, frameworks, tools, etc. I have experience with"
 			sticker="star"
 			:flip-second-sticker="false"
 		/>
