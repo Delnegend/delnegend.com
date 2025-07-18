@@ -16,7 +16,7 @@ export const links = {
 		link: 'mailto:kien@delnegend.com'
 	},
 	Watchlist: {
-		value: 'Anime/movie/series watchlist',
+		value: 'anime/movie/series',
 		link: 'https://www.notion.so/delnegend/Movie-list-cd5e30f30db14ffebf9898d69a823d8c'
 	}
 } as const

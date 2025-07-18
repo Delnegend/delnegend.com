@@ -45,7 +45,7 @@ import { links } from '~/data/links'
 
 		<Title title="Places" sticker="link" />
 
-		<ul>
+		<ul class="justify-center w-fit">
 			<li v-for="(contact, name) of links" :key="name" class="text-xl">
 				<span class="font-medium">{{ name }}:&nbsp;</span>
 				<ExtLink
