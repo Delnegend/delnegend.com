@@ -43,7 +43,7 @@ import { links } from '~/data/links'
 			</p>
 		</div>
 
-		<Title title="Online presence" sticker="link" />
+		<Title title="Places" sticker="link" />
 
 		<ul>
 			<li v-for="(contact, name) of links" :key="name" class="text-xl">
