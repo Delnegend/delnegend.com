@@ -1,27 +1,9 @@
 <script setup lang="ts">
-import { Box } from 'lucide-vue-next'
-import { ref } from 'vue'
-import Badge from '~/components/Badge.vue'
 import ExtLink from '~/components/ExtLink.vue'
-import ProjectCard from '~/components/ProjectCard.vue'
 import Title from '~/components/Title.vue'
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger
-} from '~/components/ui/accordion'
-import { Button } from '~/components/ui/button'
-import { Sheet, SheetContent, SheetTitle } from '~/components/ui/sheet'
 import Footer from '~/data/Footer.vue'
-import { contacts } from '~/data/contacts'
-import { badgeLinks, projectBadges } from '~/data/projectBadges'
-import { projects } from '~/data/projects'
-import { skills } from '~/data/skills'
-
-const selectedSkill = ref('')
-const skillRepos = ref<(typeof skills)[number]['repos'] | null>(null)
-const sheetOpen = ref(false)
+import WhatIDo from '~/data/WhatIDo.vue'
+import { links } from '~/data/links'
 </script>
 
 <template>
@@ -31,129 +13,41 @@ const sheetOpen = ref(false)
 		<Title title="Who am I" sticker="arrow" />
 
 		<p class="text-primary text-center text-balance">
-			I'm <b>Kien</b>, a software engineer,<br />
-			I draw <Box class="inline align-text-bottom" /> boxes in free time.
+			I'm <span class="underline underline-offset-4">Kien</span> ("kee-en"
+			or "key-en"),<br />
+			or Delnegend as a semi-professional alias.
 		</p>
 
-		<Sheet :open="sheetOpen" @update:open="sheetOpen = $event">
-			<SheetContent
-				class="flex flex-col gap-12 overflow-y-auto p-6"
-				aria-describedby="Projects related to the selected skill"
-			>
-				<SheetTitle class="font-bold text-balance">
-					Projects related to {{ selectedSkill }}
-				</SheetTitle>
-				<ProjectCard
-					v-for="(repo, i) in skillRepos"
-					:key="repo"
-					:title="repo"
-					:project="projects[repo]"
-					class="w-full"
-				/>
-			</SheetContent>
-		</Sheet>
+		<Title title="What I do" sticker="spark" />
 
-		<Title
-			title="What I do"
-			subtitle="But not limited to"
-			sticker="spark"
-		/>
+		<WhatIDo />
 
-		<div
-			class="grid w-full grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4"
-		>
-			<Button
-				variant="outline"
-				class="text-lg"
-				v-for="skill in skills"
-				:key="skill.name"
-				@click="
-					() => {
-						selectedSkill = skill.name
-						skillRepos = skill.repos
-						sheetOpen = true
-					}
-				"
-			>
-				{{ skill.name }}
-			</Button>
+		<Title title="However" sticker="star" :flip-second-sticker="false" />
+
+		<div class="max-w-3xl flex flex-col gap-5 text-balance text-center">
+			<p>
+				I enjoy watching movies, TV series, and anime (<ExtLink
+					:href="links.Watchlist.link"
+				>
+					watchlist</ExtLink
+				>) and playing roguelite/roguelike games in my free time.
+				Besides programming, I like to tinker with electronics and try
+				to fix/refurbish them.
+			</p>
+			<p>
+				If you're interested in requesting my work, contact me either
+				through
+				<ExtLink :href="links.Discord.link"> Discord </ExtLink>
+				(preferably) or
+				<ExtLink :href="links.Email.link"> email </ExtLink>.
+			</p>
 		</div>
 
-		<Title
-			title="Badges"
-			subtitle="A non-exhaustive list of technologies, frameworks, tools, etc. I have experience with"
-			sticker="star"
-			:flip-second-sticker="false"
-		/>
-		<div class="flex flex-wrap items-center justify-center gap-2">
-			<Badge
-				v-for="badge in projectBadges"
-				:href="badgeLinks[badge]"
-				:key="badge"
-				:class="badge"
-				variant="outline-solid"
-			>
-				{{ badge }}
-			</Badge>
-		</div>
-
-		<Title
-			title="MAQ"
-			subtitle="Might-be Asked Questions"
-			sticker="question"
-			:flip-second-sticker="false"
-		/>
-
-		<Accordion type="single" collapsible class="w-full max-w-[40rem]">
-			<AccordionItem value="when-start">
-				<AccordionTrigger> Since when? </AccordionTrigger>
-				<AccordionContent>Since 2018.</AccordionContent>
-			</AccordionItem>
-			<AccordionItem value="education">
-				<AccordionTrigger>Education?</AccordionTrigger>
-				<AccordionContent>
-					Bachelor's degree in Information and Communication
-					Technologies,<br />
-					University of Science and Technology of Hanoi, Vietnam, 2021
-					- 2024
-				</AccordionContent>
-			</AccordionItem>
-			<AccordionItem value="freelance">
-				<AccordionTrigger
-					>Take commissions, seeking for a j*b?</AccordionTrigger
-				>
-				<AccordionContent>No, I'm e*ployed.</AccordionContent>
-			</AccordionItem>
-			<AccordionItem value="game-genre">
-				<AccordionTrigger>Game genres?</AccordionTrigger>
-				<AccordionContent>Roguelike/roguelite.</AccordionContent>
-			</AccordionItem>
-			<AccordionItem value="other-industries">
-				<AccordionTrigger
-					>Interested in other industries?</AccordionTrigger
-				>
-				<AccordionContent>Creative.</AccordionContent>
-			</AccordionItem>
-			<AccordionItem value="ai-opinion">
-				<AccordionTrigger>AI/ML opinion?</AccordionTrigger>
-				<AccordionContent>
-					<ExtLink
-						href="https://youtu.be/P_fHJIYENdI?si=kQqEZj3EjjHrXmMb"
-						target="_blank"
-					>
-						As a productivity-boosting/researching tool
-					</ExtLink>
-					? Yes.<br />
-					For spamming meaningless content? GTFO.<br />
-				</AccordionContent>
-			</AccordionItem>
-		</Accordion>
-
-		<Title title="Links" subtitle="Contact me" sticker="link" />
+		<Title title="Online presence" sticker="link" />
 
 		<ul>
-			<li v-for="contact in contacts" :key="contact.name" class="text-xl">
-				<span class="font-medium">{{ contact.name }}:&nbsp;</span>
+			<li v-for="(contact, name) of links" :key="name" class="text-xl">
+				<span class="font-medium">{{ name }}:&nbsp;</span>
 				<ExtLink
 					:href="contact.link"
 					target="_blank"

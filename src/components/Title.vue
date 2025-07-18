@@ -24,7 +24,7 @@ import Star2 from './stickers/Star2.vue'
 import Star3 from './stickers/Star3.vue'
 import Star4 from './stickers/Star4.vue'
 import Star5 from './stickers/Star5.vue'
-import { onBeforeMount, ref } from 'vue'
+import { inject, ref } from 'vue'
 import { cn } from '~/lib/utils'
 
 const props = withDefaults(
@@ -32,7 +32,7 @@ const props = withDefaults(
 		class?: string
 		title: string
 		subtitle?: string
-		sticker?: 'arrow' | 'link' | 'question' | 'spark' | 'star'
+		sticker?: 'arrow' | 'link' | 'spark' | 'star'
 		flipSecondSticker?: boolean
 	}>(),
 	{
@@ -40,15 +40,13 @@ const props = withDefaults(
 	}
 )
 
-const active = ref(1)
+const Arrows = [Arrow1, Arrow2, Arrow3, Arrow4, Arrow5]
+const Links = [Link1, Link2, Link3, Link4, Link5]
+// const Questions = [Question1, Question2, Question3, Question4, Question5]
+const Sparks = [Spark1, Spark2, Spark3, Spark4, Spark5]
+const Stars = [Star1, Star2, Star3, Star4, Star5]
 
-onBeforeMount(() => {
-	if (!props.sticker) return
-	const interval = setInterval(() => {
-		active.value = active.value + 1 > 5 ? 1 : active.value + 1
-	}, 300)
-	return () => clearInterval(interval)
-})
+const ticker = inject('stickerTicker', ref(1))
 </script>
 
 <template>
@@ -56,7 +54,7 @@ onBeforeMount(() => {
 		<div
 			:class="
 				cn(
-					'flex items-center justify-center gap-2',
+					'flex items-center justify-center',
 					props.sticker === 'spark' ? 'gap-0' : 'gap-2'
 				)
 			"
@@ -67,81 +65,41 @@ onBeforeMount(() => {
 					cn(
 						'overflow-hidden [&_svg]:h-20 [&_svg]:object-contain',
 						props.sticker === 'spark'
-							? '[&_svg]:w-10'
-							: '[&_svg]:w-16'
+							? '[&_svg]:w-10 min-w-10'
+							: '[&_svg]:w-14 min-w-14'
 					)
 				"
 			>
-				<Arrow1
+				<component
+					v-for="(Arrow, index) in Arrows"
 					v-if="props.sticker === 'arrow'"
-					v-show="active === 1"
+					v-show="ticker === index + 1"
+					:is="Arrow"
 				/>
-				<Arrow2
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 2"
+				<component
+					v-for="(Link, index) in Links"
+					v-if="props.sticker === 'link'"
+					v-show="ticker === index + 1"
+					:is="Link"
 				/>
-				<Arrow3
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 3"
-				/>
-				<Arrow4
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 4"
-				/>
-				<Arrow5
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 5"
-				/>
-				<Link1 v-if="props.sticker === 'link'" v-show="active === 1" />
-				<Link2 v-if="props.sticker === 'link'" v-show="active === 2" />
-				<Link3 v-if="props.sticker === 'link'" v-show="active === 3" />
-				<Link4 v-if="props.sticker === 'link'" v-show="active === 4" />
-				<Link5 v-if="props.sticker === 'link'" v-show="active === 5" />
-				<Question1
+				<!-- <component
+					v-for="(Question, index) in Questions"
 					v-if="props.sticker === 'question'"
-					v-show="active === 1"
-				/>
-				<Question2
-					v-if="props.sticker === 'question'"
-					v-show="active === 2"
-				/>
-				<Question3
-					v-if="props.sticker === 'question'"
-					v-show="active === 3"
-				/>
-				<Question4
-					v-if="props.sticker === 'question'"
-					v-show="active === 4"
-				/>
-				<Question5
-					v-if="props.sticker === 'question'"
-					v-show="active === 5"
-				/>
-				<Spark1
+					v-show="ticker === index + 1"
+					:is="Question"
+				/> -->
+				<component
+					v-for="(Spark, index) in Sparks"
 					v-if="props.sticker === 'spark'"
-					v-show="active === 1"
+					v-show="ticker === index + 1"
+					:is="Spark"
 				/>
-				<Spark2
-					v-if="props.sticker === 'spark'"
-					v-show="active === 2"
+				<component
+					v-for="(Star, index) in Stars"
+					v-if="props.sticker === 'star'"
+					v-show="ticker === index + 1"
+					:is="Star"
 				/>
-				<Spark3
-					v-if="props.sticker === 'spark'"
-					v-show="active === 3"
-				/>
-				<Spark4
-					v-if="props.sticker === 'spark'"
-					v-show="active === 4"
-				/>
-				<Spark5
-					v-if="props.sticker === 'spark'"
-					v-show="active === 5"
-				/>
-				<Star1 v-if="props.sticker === 'star'" v-show="active === 1" />
-				<Star2 v-if="props.sticker === 'star'" v-show="active === 2" />
-				<Star3 v-if="props.sticker === 'star'" v-show="active === 3" />
-				<Star4 v-if="props.sticker === 'star'" v-show="active === 4" />
-				<Star5 v-if="props.sticker === 'star'" v-show="active === 5" />
 			</div>
 
 			<h1 class="leading-10">{{ props.title }}</h1>
@@ -152,82 +110,42 @@ onBeforeMount(() => {
 					cn(
 						'overflow-hidden [&_svg]:h-20 [&_svg]:object-contain',
 						props.sticker === 'spark'
-							? '[&_svg]:w-10'
-							: '[&_svg]:w-16',
+							? '[&_svg]:w-10 min-w-10'
+							: '[&_svg]:w-14 min-w-14',
 						props.flipSecondSticker && 'scale-x-[-1]'
 					)
 				"
 			>
-				<Arrow1
+				<component
+					v-for="(Arrow, index) in Arrows"
 					v-if="props.sticker === 'arrow'"
-					v-show="active === 2"
+					v-show="ticker === ((index + 1) % 5) + 1"
+					:is="Arrow"
 				/>
-				<Arrow2
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 3"
+				<component
+					v-for="(Link, index) in Links"
+					v-if="props.sticker === 'link'"
+					v-show="ticker === ((index + 1) % 5) + 1"
+					:is="Link"
 				/>
-				<Arrow3
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 4"
-				/>
-				<Arrow4
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 5"
-				/>
-				<Arrow5
-					v-if="props.sticker === 'arrow'"
-					v-show="active === 1"
-				/>
-				<Link1 v-if="props.sticker === 'link'" v-show="active === 2" />
-				<Link2 v-if="props.sticker === 'link'" v-show="active === 3" />
-				<Link3 v-if="props.sticker === 'link'" v-show="active === 4" />
-				<Link4 v-if="props.sticker === 'link'" v-show="active === 5" />
-				<Link5 v-if="props.sticker === 'link'" v-show="active === 1" />
-				<Question1
+				<!-- <component
+					v-for="(Question, index) in Questions"
 					v-if="props.sticker === 'question'"
-					v-show="active === 2"
-				/>
-				<Question2
-					v-if="props.sticker === 'question'"
-					v-show="active === 3"
-				/>
-				<Question3
-					v-if="props.sticker === 'question'"
-					v-show="active === 4"
-				/>
-				<Question4
-					v-if="props.sticker === 'question'"
-					v-show="active === 5"
-				/>
-				<Question5
-					v-if="props.sticker === 'question'"
-					v-show="active === 1"
-				/>
-				<Spark1
+					v-show="ticker === ((index + 1) % 5) + 1"
+					:is="Question"
+				/> -->
+				<component
+					v-for="(Spark, index) in Sparks"
 					v-if="props.sticker === 'spark'"
-					v-show="active === 2"
+					v-show="ticker === ((index + 1) % 5) + 1"
+					:is="Spark"
 				/>
-				<Spark2
-					v-if="props.sticker === 'spark'"
-					v-show="active === 3"
+				<component
+					v-for="(Star, index) in Stars"
+					v-if="props.sticker === 'star'"
+					v-show="ticker === ((index + 1) % 5) + 1"
+					:is="Star"
 				/>
-				<Spark3
-					v-if="props.sticker === 'spark'"
-					v-show="active === 4"
-				/>
-				<Spark4
-					v-if="props.sticker === 'spark'"
-					v-show="active === 5"
-				/>
-				<Spark5
-					v-if="props.sticker === 'spark'"
-					v-show="active === 1"
-				/>
-				<Star1 v-if="props.sticker === 'star'" v-show="active === 2" />
-				<Star2 v-if="props.sticker === 'star'" v-show="active === 3" />
-				<Star3 v-if="props.sticker === 'star'" v-show="active === 4" />
-				<Star4 v-if="props.sticker === 'star'" v-show="active === 5" />
-				<Star5 v-if="props.sticker === 'star'" v-show="active === 1" />
 			</div>
 		</div>
 

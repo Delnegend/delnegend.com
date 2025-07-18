@@ -1,8 +1,8 @@
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
-const title = 'Delnegend'
-const description = 'Hewo, world!'
+const title = 'Je suis Kien!'
+const description = 'my tiny little corner on the net'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({

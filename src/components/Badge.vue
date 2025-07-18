@@ -194,4 +194,16 @@ const badgeVariants = cva(
 	--bg: hsl(0, 0%, 4%);
 	--text: hsl(0, 0%, 98%);
 }
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+	syntax: '<angle>';
+	initial-value: 0deg;
+	inherits: false;
+}
 </style>
