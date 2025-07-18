@@ -98,7 +98,7 @@ export const projects = {
 		repo: 'https://github.com/Delnegend/update',
 		description:
 			'A simple command-line tool that automatically checks for and provides direct download links for updates to various Windows apps that lack built-in auto-update features.',
-		status: [Status.ARCHIVED, Status.COMPLETED],
+		status: [Status.COMPLETED, Status.ARCHIVED],
 		badges: ['go', 'regex']
 	},
 	Differ: {
