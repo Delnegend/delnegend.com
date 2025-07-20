@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { badgeLinks, projectBadges } from './projectBadges'
+import { projects } from './projects'
+import { skills } from './skills'
 import { inject, ref } from 'vue'
 import Badge from '~/components/Badge.vue'
 import ProjectCard from '~/components/ProjectCard.vue'
@@ -16,9 +19,6 @@ import {
 } from '~/components/ui/dialog'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs'
 import { cn } from '~/lib/utils'
-import { badgeLinks, projectBadges } from './projectBadges'
-import { projects } from './projects'
-import { skills } from './skills'
 
 const dialogOpen = ref(false)
 const selectedSkill = ref<(typeof skills)[number] | null>(null)
