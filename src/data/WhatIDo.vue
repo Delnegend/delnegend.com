@@ -11,11 +11,16 @@ import Rectangle3 from '~/components/stickers/Rectangle3.vue'
 import Rectangle4 from '~/components/stickers/Rectangle4.vue'
 import Rectangle5 from '~/components/stickers/Rectangle5.vue'
 import { Button } from '~/components/ui/button'
-import { Sheet, SheetContent, SheetTitle } from '~/components/ui/sheet'
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle
+} from '~/components/ui/dialog'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs'
 import { cn } from '~/lib/utils'
 
-const sheetOpen = ref(false)
+const dialogOpen = ref(false)
 const selectedSkill = ref<(typeof skills)[number] | null>(null)
 const viewingVersion = ref<'short' | 'long'>('short')
 
@@ -25,17 +30,14 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 
 <template>
 	<div>
-		<Sheet :open="sheetOpen" @update:open="sheetOpen = $event">
-			<SheetContent
-				class="flex flex-col gap-12 overflow-y-auto p-6"
-				aria-describedby="Projects related to the selected skill"
-			>
-				<SheetTitle
-					class="font-bold text-balance"
-					v-if="!!selectedSkill"
-				>
-					Projects related to {{ selectedSkill?.name }}
-				</SheetTitle>
+		<Dialog :open="dialogOpen" @update:open="dialogOpen = $event">
+			<DialogContent class="max-h-[90vh] overflow-y-auto gap-12">
+				<DialogHeader>
+					<DialogTitle class="text-balance text-left">
+						Projects related to {{ selectedSkill?.name }}
+					</DialogTitle>
+				</DialogHeader>
+
 				<ProjectCard
 					v-if="!!selectedSkill?.repos.length"
 					v-for="(repo, i) in selectedSkill?.repos"
@@ -44,8 +46,8 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 					:project="projects[repo]"
 					class="w-full"
 				/>
-			</SheetContent>
-		</Sheet>
+			</DialogContent>
+		</Dialog>
 
 		<Tabs
 			default-value="short"
@@ -95,7 +97,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 							@click="
 								() => {
 									selectedSkill = skill
-									sheetOpen = true
+									dialogOpen = true
 								}
 							"
 							:disabled="viewingVersion !== 'long'"
