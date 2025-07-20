@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { badgeLinks, projectBadges } from './projectBadges'
-import { projects } from './projects'
-import { skills } from './skills'
 import { inject, ref } from 'vue'
 import Badge from '~/components/Badge.vue'
 import ProjectCard from '~/components/ProjectCard.vue'
@@ -19,6 +16,9 @@ import {
 } from '~/components/ui/dialog'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs'
 import { cn } from '~/lib/utils'
+import { badgeLinks, projectBadges } from './projectBadges'
+import { projects } from './projects'
+import { skills } from './skills'
 
 const dialogOpen = ref(false)
 const selectedSkill = ref<(typeof skills)[number] | null>(null)
@@ -31,7 +31,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 <template>
 	<div>
 		<Dialog :open="dialogOpen" @update:open="dialogOpen = $event">
-			<DialogContent class="max-h-[90vh] overflow-y-auto gap-12">
+			<DialogContent class="max-h-[90dvh] overflow-y-auto gap-12">
 				<DialogHeader>
 					<DialogTitle class="text-balance text-left">
 						Projects related to {{ selectedSkill?.name }}
