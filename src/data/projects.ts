@@ -108,8 +108,8 @@ export const projects = {
 		status: Status.COMPLETED,
 		badges: ['go']
 	},
-	'gallery-preprocessor-go': {
-		repo: 'https://github.com/Delnegend/gallery-preprocessor-go',
+	'gallery-preprocessor': {
+		repo: 'https://github.com/Delnegend/gallery-preprocessor',
 		description:
 			'A user-friendly desktop app that allows you to drag-and-drop images for batch processing tasks.',
 		status: Status.COMPLETED,
