@@ -33,7 +33,7 @@ onBeforeMount(() => {
 		<div class="max-w-3xl flex flex-col gap-5 text-balance text-center">
 			<p>
 				I enjoy watching movies, TV series, and anime (<ExtLink
-					:href="links.Watchlist.link"
+					href="https://delnegend.notion.site/Movie-list-cd5e30f30db14ffebf9898d69a823d8c?source=copy_link"
 				>
 					watchlist</ExtLink
 				>) and playing roguelite/roguelike games in my free time.
