@@ -22,19 +22,13 @@ onBeforeMount(() => {
 	<div
 		class="mx-auto my-20 flex w-[90%] max-w-5xl flex-col items-center justify-center gap-20"
 	>
-		<Title title="Who am I" sticker="arrow" />
+		<Title title="Sur moi" sticker="arrow" />
 
 		<p class="text-primary text-center text-balance">
 			I'm <span class="underline underline-offset-4">Kien</span> ("kee-en"
 			or "key-en"),<br />
 			or Delnegend as a semi-professional alias.
 		</p>
-
-		<Title title="What I do" sticker="spark" />
-
-		<WhatIDo />
-
-		<Title title="However" sticker="star" :flip-second-sticker="false" />
 
 		<div class="max-w-3xl flex flex-col gap-5 text-balance text-center">
 			<p>
@@ -55,7 +49,13 @@ onBeforeMount(() => {
 			</p>
 		</div>
 
-		<Title title="Places" sticker="link" />
+		<Title title="Profession" sticker="spark" />
+
+		<WhatIDo />
+
+		<!-- <Title title="However" sticker="star" :flip-second-sticker="false" /> -->
+
+		<Title title="Lieux" sticker="link" />
 
 		<ul class="justify-center w-fit">
 			<li v-for="(contact, name) of links" :key="name" class="text-xl">
