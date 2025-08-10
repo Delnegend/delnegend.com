@@ -22,7 +22,7 @@ onBeforeMount(() => {
 	<div
 		class="mx-auto my-20 flex w-[90%] max-w-5xl flex-col items-center justify-center gap-20"
 	>
-		<Title title="Sur moi" sticker="arrow" />
+		<Title title="Me" sticker="arrow" />
 
 		<p class="text-primary text-center text-balance">
 			I'm <span class="underline underline-offset-4">Kien</span> ("kee-en"
@@ -55,7 +55,7 @@ onBeforeMount(() => {
 
 		<!-- <Title title="However" sticker="star" :flip-second-sticker="false" /> -->
 
-		<Title title="Lieux" sticker="link" />
+		<Title title="Places" sticker="link" />
 
 		<ul class="justify-center w-fit">
 			<li v-for="(contact, name) of links" :key="name" class="text-xl">
