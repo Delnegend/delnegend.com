@@ -1,8 +1,8 @@
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
-const title = 'Someone named Kien'
-const description = 'and his little corner on the net'
+const title = 'Kien'
+const description = 'somebody you might used to know'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -10,10 +10,6 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	css: ['~/app.css'],
 	srcDir: './src/',
-	experimental: {
-		viewTransition: true,
-		typedPages: true
-	},
 	vite: {
 		build: {
 			target: 'esnext'

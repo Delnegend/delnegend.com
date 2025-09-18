@@ -68,6 +68,14 @@
 	::file-selector-button {
 		border-color: var(--color-gray-200, currentcolor);
 	}
+
+	* {
+		@apply border-border outline-ring/50;
+	}
+
+	body {
+		@apply bg-[url(~/assets/grid.png)] bg-size-[8rem] bg-repeat text-foreground;
+	}
 }
 
 @layer utilities {
@@ -147,20 +155,6 @@
 	}
 }
 
-@layer base {
-	* {
-		@apply border-border;
-	}
-
-	body {
-		@apply bg-[url(~/assets/grid.png)] bg-size-[8rem] bg-repeat text-foreground;
-	}
-}
-
-/*
-  ---break---
-*/
-
 @theme inline {
 	--animate-accordion-down: accordion-down 0.2s ease-out;
 	--animate-accordion-up: accordion-up 0.2s ease-out;
@@ -179,18 +173,5 @@
 		to {
 			height: 0;
 		}
-	}
-}
-
-/*
-  ---break---
-*/
-
-@layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
 	}
 }

@@ -1,52 +1,47 @@
 <script setup lang="ts">
-import { cva, type VariantProps } from 'class-variance-authority'
 import type { HTMLAttributes } from 'vue'
 import { cn } from '~/lib/utils'
+
+enum BadgeVariant {
+	Default = 'default',
+	Secondary = 'secondary',
+	Destructive = 'destructive',
+	OutlineSolid = 'outline-solid'
+}
 
 const props = withDefaults(
 	defineProps<{
 		class?: HTMLAttributes['class']
-		variant?: VariantProps<typeof badgeVariants>['variant']
+		variant?: BadgeVariant
 		href?: string
 	}>(),
 	{
 		class: '',
-		variant: 'default'
+		variant: BadgeVariant.Default
 	}
 )
 
-const badgeVariants = cva(
+const classes = cn(
 	'focus:ring-ring inline-flex items-center border border-dashed px-2.5 py-0.5 text-base font-semibold transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-hidden',
 	{
-		variants: {
-			variant: {
-				default:
-					'bg-primary text-primary-foreground hover:bg-primary/80 border-transparent shadow-sm',
-				secondary:
-					'bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent',
-				destructive:
-					'bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent shadow-sm',
-				'outline-solid':
-					'hover:border-solid hover:text-(--text) hover:[background:var(--bg)]'
-			}
-		}
-	}
+		[BadgeVariant.Default]:
+			'bg-primary text-primary-foreground hover:bg-primary/80 shadow-sm border-transparent',
+		[BadgeVariant.Secondary]:
+			'bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent',
+		[BadgeVariant.Destructive]:
+			'bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent shadow-sm',
+		[BadgeVariant.OutlineSolid]:
+			'hover:border-solid hover:text-(--text) hover:[background:var(--bg)]'
+	}[props.variant],
+	props.class
 )
 </script>
 
 <template>
-	<a
-		v-if="!!props.href"
-		:href="props.href"
-		target="_blank"
-		:class="cn(badgeVariants({ variant: props.variant }), props.class)"
-	>
+	<a v-if="!!props.href" :href="props.href" target="_blank" :class="classes">
 		<slot />
 	</a>
-	<div
-		:class="cn(badgeVariants({ variant: props.variant }), props.class)"
-		v-else
-	>
+	<div :class="classes" v-else>
 		<slot />
 	</div>
 </template>

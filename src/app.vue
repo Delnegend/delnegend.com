@@ -20,42 +20,40 @@ onBeforeMount(() => {
 
 <template>
 	<div
-		class="mx-auto my-20 flex w-[90%] max-w-5xl flex-col items-center justify-center gap-20"
+		class="mx-auto my-20 flex w-[85%] max-w-xl flex-col items-start justify-center gap-10"
 	>
 		<Title title="Me" sticker="arrow" />
 
-		<p class="text-primary text-center text-balance">
-			I'm <span class="underline underline-offset-4">Kien</span> ("kee-en"
-			or "key-en"),<br />
-			or Delnegend as a semi-professional alias.
-		</p>
-
-		<div class="max-w-3xl flex flex-col gap-5 text-balance text-center">
+		<div class="max-w-3xl flex flex-col gap-5 text-balance">
 			<p>
-				I enjoy watching movies, TV series, and anime (<ExtLink
-					href="https://delnegend.notion.site/Movie-list-cd5e30f30db14ffebf9898d69a823d8c?source=copy_link"
-				>
-					watchlist</ExtLink
-				>) and playing roguelite/roguelike games in my free time.
-				Besides programming, I like to tinker with electronics and try
-				to fix/refurbish them.
+				I'm
+				<span class="underline underline-offset-4">Kien</span> ("kee-en"
+				or "key-en"),<br />
+				or Delnegend as a semi-professional alias.
 			</p>
 			<p>
-				If you're interested in requesting my work, contact me either
-				through
-				<ExtLink :href="links.Discord.link"> Discord </ExtLink>
-				(preferably) or
-				<ExtLink :href="links.Email.link"> email </ExtLink>.
+				<span class="whitespace-nowrap">
+					<ExtLink
+						href="https://delnegend.notion.site/Movie-list-cd5e30f30db14ffebf9898d69a823d8c?source=copy_link"
+					>
+						Watcher</ExtLink
+					>,
+				</span>
+				gamer,
+				<span class="whitespace-nowrap">
+					<ExtLink :href="links.GitHub.value">programmer</ExtLink>,
+				</span>
+				home server hobbyist.
 			</p>
 		</div>
 
-		<Title title="Profession" sticker="spark" />
+		<!-- <Title title="Profession" sticker="spark" /> -->
 
 		<WhatIDo />
 
 		<!-- <Title title="However" sticker="star" :flip-second-sticker="false" /> -->
 
-		<Title title="Places" sticker="link" />
+		<Title title="Links" sticker="link" />
 
 		<ul class="justify-center w-fit">
 			<li v-for="(contact, name) of links" :key="name" class="text-xl">

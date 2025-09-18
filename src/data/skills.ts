@@ -14,7 +14,7 @@ export const skills = [
 			'Artefact',
 			'Update',
 			'Differ',
-			'gallery-preprocessor-go',
+			'gallery-preprocessor',
 			'upptime-embed',
 			'taxer',
 			'social-2-telego',
@@ -33,7 +33,7 @@ export const skills = [
 			'Yomuyume',
 			'Artefact',
 			'Kiness Social/Admin',
-			'gallery-preprocessor-go',
+			'gallery-preprocessor',
 			'upptime-embed',
 			'TOWD',
 			'KHPlayer'
@@ -47,7 +47,7 @@ export const skills = [
 		name: 'Desktop app Development',
 		repos: [
 			'Kiness Social/Admin',
-			'gallery-preprocessor-go',
+			'gallery-preprocessor',
 			'social-2-telego'
 		]
 	},
@@ -56,13 +56,13 @@ export const skills = [
 		repos: [
 			'Artefact',
 			'Differ',
-			'gallery-preprocessor-go',
+			'gallery-preprocessor',
 			'taxer',
 			'ffmpeg-progressbar'
 		]
 	},
 	{
-		name: 'Web Scraping & Data Extraction',
+		name: 'Web Scrape, Data Extract',
 		repos: [
 			'Update',
 			'upptime-embed',
@@ -72,7 +72,7 @@ export const skills = [
 		]
 	},
 	{
-		name: 'API Integration & Development',
+		name: 'API Develop & Integration',
 		repos: [
 			'Kiness Social/Admin',
 			'taxer',
@@ -93,7 +93,7 @@ export const skills = [
 		repos: ['Update', 'cf-ddns', 'ffmpeg-progressbar']
 	},
 	{
-		name: 'System Design & Architecture',
+		name: 'System Architect',
 		repos: [
 			'Biolak',
 			'Yomuyume',
@@ -109,7 +109,7 @@ export const skills = [
 			'Yomuyume',
 			'Artefact',
 			'Kiness Social/Admin',
-			'gallery-preprocessor-go',
+			'gallery-preprocessor',
 			'upptime-embed',
 			'TOWD',
 			'social-2-telego'

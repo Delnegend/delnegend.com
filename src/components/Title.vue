@@ -9,11 +9,6 @@ import Link2 from './stickers/Link2.vue'
 import Link3 from './stickers/Link3.vue'
 import Link4 from './stickers/Link4.vue'
 import Link5 from './stickers/Link5.vue'
-import Question1 from './stickers/Question1.vue'
-import Question2 from './stickers/Question2.vue'
-import Question3 from './stickers/Question3.vue'
-import Question4 from './stickers/Question4.vue'
-import Question5 from './stickers/Question5.vue'
 import Spark1 from './stickers/Spark1.vue'
 import Spark2 from './stickers/Spark2.vue'
 import Spark3 from './stickers/Spark3.vue'
@@ -50,11 +45,11 @@ const ticker = inject('stickerTicker', ref(1))
 </script>
 
 <template>
-	<div :class="cn('text-center text-balance', props.class)">
+	<div :class="cn('text-balance', props.class)">
 		<div
 			:class="
 				cn(
-					'flex items-center justify-center',
+					'flex items-center',
 					props.sticker === 'spark' ? 'gap-0' : 'gap-2'
 				)
 			"
