@@ -41,7 +41,7 @@ onBeforeMount(() => {
 				</span>
 				gamer,
 				<span class="whitespace-nowrap">
-					<ExtLink :href="links.GitHub.value">programmer</ExtLink>,
+					<ExtLink :href="links.GitHub.link">programmer</ExtLink>,
 				</span>
 				home server hobbyist.
 			</p>
