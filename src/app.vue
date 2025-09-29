@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { Button, ButtonVariant } from './components/ui/button'
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger
+} from './components/ui/dialog'
 import { onBeforeMount, provide, ref } from 'vue'
 import ExtLink from '~/components/ExtLink.vue'
 import Title from '~/components/Title.vue'
-import Footer from '~/data/Footer.vue'
-import WhatIDo from '~/data/WhatIDo.vue'
 import { links } from '~/data/links'
 
 const stickerTicker = ref(1)
@@ -20,52 +26,158 @@ onBeforeMount(() => {
 
 <template>
 	<div
-		class="mx-auto my-20 flex w-[85%] max-w-xl flex-col items-start justify-center gap-10"
+		class="mx-auto my-20 flex w-[85%] max-w-xl text-balance flex-col items-start justify-center gap-14"
 	>
-		<Title title="Me" sticker="arrow" />
+		<Title title="I'm Kien!" sticker="star" />
 
-		<div class="max-w-3xl flex flex-col gap-5 text-balance">
-			<p>
-				I'm
-				<span class="underline underline-offset-4">Kien</span> ("kee-en"
-				or "key-en"),<br />
-				or Delnegend as a semi-professional alias.
-			</p>
-			<p>
-				<span class="whitespace-nowrap">
-					<ExtLink
-						href="https://delnegend.notion.site/Movie-list-cd5e30f30db14ffebf9898d69a823d8c?source=copy_link"
+		<h2>as a developer,</h2>
+
+		<p>
+			I write a ton of open-source software under the Delnegend identity
+			on <ExtLink :href="links.GitHub">GitHub</ExtLink>, and these two
+			projects are the ones I'm most proud of. Click or tap on these
+			cards:
+		</p>
+
+		<div
+			class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 w-full"
+		>
+			<Dialog>
+				<DialogTrigger as-child>
+					<Button
+						:variant="ButtonVariant.Outline"
+						class="whitespace-break-spaces size-full text-balance text-base"
 					>
-						Watcher</ExtLink
-					>,
-				</span>
-				gamer,
-				<span class="whitespace-nowrap">
-					<ExtLink :href="links.GitHub.link">programmer</ExtLink>,
-				</span>
-				home server hobbyist.
-			</p>
+						<span>
+							<span class="text-lg inline-block">Artefact</span
+							><br />
+							JPEG artifacts removal
+						</span>
+					</Button>
+				</DialogTrigger>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>
+							<ExtLink
+								href="https://github.com/Delnegend/artefact"
+							>
+								Artefact
+							</ExtLink>
+						</DialogTitle>
+					</DialogHeader>
+					<ul class="space-y-2">
+						<li>
+							Remove JPEG compression artifacts using math I can
+							barely comprehend.
+						</li>
+						<li>
+							I just re-implemented it in Rust, not only because I
+							want to get out of my safe zone, but also to have
+							legitimate use for it.
+						</li>
+						<li>
+							I optimized the heck out of it and got double, even
+							triple, the performance compared to the original
+							one.
+						</li>
+						<li>
+							I also built a webapp on top of it, running entirely
+							in the browser, so (1) people don't need to have
+							their pictures sent to some random server on the
+							internet, and (2) I don't have to pay for a server
+							to host it.
+						</li>
+						<li>
+							The core feature of the web app is complete, but
+							there are still some rough edges I want to refine.
+						</li>
+					</ul>
+				</DialogContent>
+			</Dialog>
+			<Dialog>
+				<DialogTrigger as-child>
+					<Button
+						:variant="ButtonVariant.Outline"
+						class="whitespace-break-spaces size-full text-balance text-base"
+					>
+						<span>
+							<span class="text-lg">Yomuyume</span><br />
+							self-hosted comic server
+						</span>
+					</Button>
+				</DialogTrigger>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>
+							<ExtLink
+								href="https://github.com/Delnegend/yomuyume"
+							>
+								Yomuyume
+							</ExtLink>
+						</DialogTitle>
+					</DialogHeader>
+					<ul class="space-y-2">
+						<li>A blazingly fast self-hosted comic server.</li>
+						<li>
+							It started as a group project when I was in uni,
+							became my Rust-learning playground, and now it's the
+							thing I do when I have other, more important things
+							to do.
+						</li>
+						<li>
+							Still in a heavily WIP state since I want to pour
+							all of my craft into it.
+						</li>
+					</ul>
+				</DialogContent>
+			</Dialog>
 		</div>
 
-		<!-- <Title title="Profession" sticker="spark" /> -->
+		<h2>as a watcher,</h2>
 
-		<WhatIDo />
+		<p>
+			I watch a lot of movies, series, and anime, most of which are
+			popular ones; feel free to check out my
+			<ExtLink :href="links.Watchlist">watchlist</ExtLink>.
+		</p>
 
-		<!-- <Title title="However" sticker="star" :flip-second-sticker="false" /> -->
+		<h2>as a gamer,</h2>
 
-		<Title title="Links" sticker="link" />
+		<p>
+			I used to grind
+			<ExtLink href="https://steamdb.info/app/232090/">KF2</ExtLink> like
+			crazy. Nowadays, it's
+			<ExtLink href="https://steamdb.info/app/632360/"
+				>Risk of Rain 2
+			</ExtLink>
+			and <ExtLink href="https://tetr.io/">tetr.io</ExtLink>.
+			<br />
+			<br />
+			Had a good time with
+			<ExtLink href="https://steamdb.info/app/2215430/">
+				Ghost of Tsushima </ExtLink
+			>, looking forward to having a chance to replay it, and trying out
+			other games like
+			<ExtLink href="https://steamdb.info/app/1430190/">KF3</ExtLink>,
+			<ExtLink href="https://www.playstation.com/games/ghost-of-yotei/">
+				Ghost of Yotei
+			</ExtLink>
+			(when it's available on PC, ofc) and
+			<ExtLink href="https://steamdb.info/app/1903340/">
+				Clair Obscur</ExtLink
+			>.
+		</p>
 
-		<ul class="justify-center w-fit">
-			<li v-for="(contact, name) of links" :key="name" class="text-xl">
-				<span class="font-medium">{{ name }}:&nbsp;</span>
-				<ExtLink
-					:href="contact.link"
-					target="_blank"
-					class="flex items-center gap-2 font-light"
-					>{{ contact.value }}
-				</ExtLink>
-			</li>
-		</ul>
+		<div class="justify-center w-full flex flex-row gap-5 flex-wrap">
+			<ExtLink
+				v-for="(href, title) of links"
+				:key="title"
+				:href="href"
+				target="_blank"
+				class="flex items-center gap-2 font-light text-xl"
+				>{{ title }}
+			</ExtLink>
+		</div>
 
 		<footer class="text-center text-balance">
 			Design inspired by
@@ -76,11 +188,21 @@ onBeforeMount(() => {
 
 <style>
 h1 {
-	font-weight: var(--font-weight-black);
 	font-size: var(--text-5xl);
+	font-weight: var(--font-weight-black);
+}
+
+h2 {
+	font-size: var(--text-3xl);
+	font-weight: var(--font-weight-semibold);
 }
 
 p {
 	font-size: var(--text-xl);
+}
+
+ul {
+	list-style-type: disc;
+	padding-left: 1.5rem;
 }
 </style>
