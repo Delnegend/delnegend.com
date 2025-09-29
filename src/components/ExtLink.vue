@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ExternalLink } from 'lucide-vue-next'
+import { cn } from '~/lib/utils'
 
 const props = withDefaults(
 	defineProps<{
@@ -20,8 +21,12 @@ const props = withDefaults(
 	<a
 		:href="props.href"
 		:target="props.target"
-		class="hover:text-primary inline-flex items-center gap-1 underline underline-offset-4 transition-colors"
-		:class="props.class"
+		:class="
+			cn(
+				'hover:text-primary inline-flex items-center gap-1 hover:scale-105 transition-all',
+				props.class
+			)
+		"
 	>
 		<slot />
 		<ExternalLink :size="props.iconSize" />
