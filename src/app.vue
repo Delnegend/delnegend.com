@@ -67,7 +67,10 @@ onBeforeMount(() => {
 			</li>
 		</ul>
 
-		<Footer />
+		<footer class="text-center text-balance">
+			Design inspired by
+			<ExtLink href="https://excalidraw.com/">Excalidraw</ExtLink>
+		</footer>
 	</div>
 </template>
 
