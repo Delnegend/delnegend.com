@@ -33,16 +33,16 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 <template>
 	<div class="text-balance">
 		<Dialog :open="dialogOpen" @update:open="dialogOpen = $event">
-			<DialogContent class="max-h-[90dvh] overflow-y-auto gap-12">
+			<DialogContent class="max-h-[90dvh] gap-12 overflow-y-auto">
 				<DialogHeader
-					class="flex justify-between items-center flex-row"
+					class="flex flex-row items-center justify-between"
 				>
 					<DialogTitle class="text-left">
 						Projects related to {{ selectedSkill?.name }}
 					</DialogTitle>
 
 					<DialogClose
-						class="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-10"
+						class="rounded-xs opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-10"
 					>
 						<X />
 						<span class="sr-only">Close</span>
@@ -65,7 +65,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 				<div
 					:class="
 						cn(
-							'absolute top-1/2 transition-transform left-0 -translate-y-1/2',
+							'absolute top-1/2 left-0 -translate-y-1/2 transition-transform',
 							viewingVersion === 'short'
 								? '-translate-x-2'
 								: 'translate-x-[calc(var(--spacing)*26)]'
@@ -76,7 +76,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 						v-for="(Rectangle, index) in Rectangles"
 						:key="index"
 						:is="Rectangle"
-						class="w-32 h-auto"
+						class="h-auto w-32"
 						v-show="ticker === index + 1"
 					/>
 				</div>
@@ -91,7 +91,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 			>
 				<TabsContent
 					:value="viewingVersion"
-					class="flex flex-col overflow-hidden gap-3"
+					class="flex flex-col gap-3 overflow-hidden"
 				>
 					<div class="text-xl">I do these</div>
 					<div

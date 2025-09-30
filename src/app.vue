@@ -26,7 +26,7 @@ onBeforeMount(() => {
 
 <template>
 	<div
-		class="mx-auto my-20 flex w-[85%] max-w-xl text-balance flex-col items-start justify-center gap-14"
+		class="mx-auto my-20 flex w-[85%] max-w-xl flex-col items-start justify-center gap-14 text-balance"
 	>
 		<Title title="I'm Kien!" sticker="star" />
 
@@ -40,16 +40,16 @@ onBeforeMount(() => {
 		</p>
 
 		<div
-			class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 w-full"
+			class="grid w-full grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5"
 		>
 			<Dialog>
 				<DialogTrigger as-child>
 					<Button
 						:variant="ButtonVariant.Outline"
-						class="whitespace-break-spaces size-full text-balance text-base"
+						class="size-full text-base text-balance whitespace-break-spaces"
 					>
 						<span>
-							<span class="text-lg inline-block">Artefact</span
+							<span class="inline-block text-lg">Artefact</span
 							><br />
 							JPEG artifacts removal
 						</span>
@@ -98,7 +98,7 @@ onBeforeMount(() => {
 				<DialogTrigger as-child>
 					<Button
 						:variant="ButtonVariant.Outline"
-						class="whitespace-break-spaces size-full text-balance text-base"
+						class="size-full text-base text-balance whitespace-break-spaces"
 					>
 						<span>
 							<span class="text-lg">Yomuyume</span><br />
@@ -168,13 +168,13 @@ onBeforeMount(() => {
 			>.
 		</p>
 
-		<div class="justify-center w-full flex flex-row gap-5 flex-wrap">
+		<div class="flex w-full flex-row flex-wrap justify-center gap-5">
 			<ExtLink
 				v-for="(href, title) of links"
 				:key="title"
 				:href="href"
 				target="_blank"
-				class="flex items-center gap-2 font-light text-xl"
+				class="flex items-center gap-2 text-xl font-light"
 				>{{ title }}
 			</ExtLink>
 		</div>

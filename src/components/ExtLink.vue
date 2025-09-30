@@ -23,7 +23,7 @@ const props = withDefaults(
 		:target="props.target"
 		:class="
 			cn(
-				'hover:text-primary inline-flex items-center gap-1 hover:scale-105 transition-all',
+				'inline-flex items-center gap-1 transition-all hover:scale-105 hover:text-primary',
 				props.class
 			)
 		"

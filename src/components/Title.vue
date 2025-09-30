@@ -65,8 +65,8 @@ const ticker = inject('stickerTicker', ref(1))
 					cn(
 						'overflow-hidden [&_svg]:h-20 [&_svg]:object-contain',
 						props.sticker === 'spark'
-							? '[&_svg]:w-10 min-w-10'
-							: '[&_svg]:w-14 min-w-14'
+							? 'min-w-10 [&_svg]:w-10'
+							: 'min-w-14 [&_svg]:w-14'
 					)
 				"
 			>
@@ -110,8 +110,8 @@ const ticker = inject('stickerTicker', ref(1))
 					cn(
 						'overflow-hidden [&_svg]:h-20 [&_svg]:object-contain',
 						props.sticker === 'spark'
-							? '[&_svg]:w-10 min-w-10'
-							: '[&_svg]:w-14 min-w-14',
+							? 'min-w-10 [&_svg]:w-10'
+							: 'min-w-14 [&_svg]:w-14',
 						props.flipSecondSticker && 'scale-x-[-1]'
 					)
 				"
@@ -149,7 +149,7 @@ const ticker = inject('stickerTicker', ref(1))
 			</div>
 		</div>
 
-		<span class="text-muted-foreground mt-3 text-lg">
+		<span class="mt-3 text-lg text-muted-foreground">
 			{{ props.subtitle }}
 		</span>
 	</div>

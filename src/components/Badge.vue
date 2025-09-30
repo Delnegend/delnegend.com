@@ -22,14 +22,14 @@ const props = withDefaults(
 )
 
 const classes = cn(
-	'focus:ring-ring inline-flex items-center border border-dashed px-2.5 py-0.5 text-base font-semibold transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-hidden',
+	'inline-flex items-center border border-dashed px-2.5 py-0.5 text-base font-semibold transition-colors focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-hidden',
 	{
 		[BadgeVariant.Default]:
-			'bg-primary text-primary-foreground hover:bg-primary/80 shadow-sm border-transparent',
+			'border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary/80',
 		[BadgeVariant.Secondary]:
-			'bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent',
+			'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
 		[BadgeVariant.Destructive]:
-			'bg-destructive text-destructive-foreground hover:bg-destructive/80 border-transparent shadow-sm',
+			'border-transparent bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/80',
 		[BadgeVariant.OutlineSolid]:
 			'hover:border-solid hover:text-(--text) hover:[background:var(--bg)]'
 	}[props.variant],

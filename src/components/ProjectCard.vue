@@ -22,7 +22,7 @@ const props = withDefaults(
 	<div
 		:class="
 			cn(
-				'text-secondary-foreground flex flex-col gap-3 font-extralight text-balance',
+				'flex flex-col gap-3 font-extralight text-balance text-secondary-foreground',
 				props.class
 			)
 		"
