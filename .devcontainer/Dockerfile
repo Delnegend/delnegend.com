@@ -1,7 +1,8 @@
 FROM debian:bookworm
 
 RUN apt-get update && apt-get install -y \
-    curl git sudo zsh \
+    curl git sudo unzip \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -g 1000 delnegend && \

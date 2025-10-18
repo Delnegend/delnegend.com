@@ -3,8 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-	"runArgs": ["-v", "global-pnpm-store:/home/delnegend/.pnpm-store"],
-	"postCreateCommand": "zsh .devcontainer/postinstall.sh",
+	"postCreateCommand": "bash .devcontainer/postinstall.sh",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -12,7 +11,20 @@
 				"bradlc.vscode-tailwindcss",
 				"esbenp.prettier-vscode",
 				"YoavBls.pretty-ts-errors"
-			]
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"[json]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[vue]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[ts]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"tailwindCSS.classFunctions": ["cn", "cva"]
+			}
 		}
 	}
 }
