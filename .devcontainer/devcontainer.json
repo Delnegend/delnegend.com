@@ -23,7 +23,7 @@
 				"[ts]": {
 					"editor.defaultFormatter": "esbenp.prettier-vscode"
 				},
-				"tailwindCSS.classFunctions": ["cn", "cva"]
+				"tailwindCSS.classFunctions": ["cn"]
 			}
 		}
 	}
