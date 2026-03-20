@@ -14,23 +14,23 @@
 		"lint": "oxlint --import-plugin -D correctness -D perf && prettier -l -w \"**/*.{js,ts,vue,json,css}\""
 	},
 	"dependencies": {
-		"@vueuse/core": "^14.0.0",
+		"@vueuse/core": "^14.2.1",
 		"clsx": "^2.1.1",
-		"lucide-vue-next": "^0.552.0",
-		"nuxt": "^4.2.0",
-		"reka-ui": "^2.6.0",
-		"tailwind-merge": "^3.3.1",
+		"lucide-vue-next": "^0.577.0",
+		"nuxt": "^4.4.2",
+		"reka-ui": "^2.9.2",
+		"tailwind-merge": "^3.5.0",
 		"tailwindcss-animate": "^1.0.7",
-		"vue": "^3.5.22",
-		"vue-router": "^4.6.3"
+		"vue": "^3.5.30",
+		"vue-router": "^5.0.4"
 	},
 	"devDependencies": {
-		"@tailwindcss/vite": "^4.1.16",
+		"@tailwindcss/vite": "^4.2.2",
 		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
-		"oxlint": "^1.25.0",
-		"prettier": "^3.6.2",
-		"prettier-plugin-tailwindcss": "^0.7.1",
-		"tailwindcss": "^4.1.16"
+		"oxlint": "^1.56.0",
+		"prettier": "^3.8.1",
+		"prettier-plugin-tailwindcss": "^0.7.2",
+		"tailwindcss": "^4.2.2"
 	},
 	"prettier": {
 		"semi": false,
