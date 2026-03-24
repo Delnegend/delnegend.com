@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import DialogClose from './DialogClose.vue'
-import { X } from 'lucide-vue-next'
+import { X } from '@lucide/vue'
 import type { HTMLAttributes } from 'vue'
 import { cn } from '~/lib/utils'
 

@@ -2,7 +2,7 @@
 import { links } from './links'
 import { projects } from './projects'
 import { skills } from './skills'
-import { X } from 'lucide-vue-next'
+import { X } from '@lucide/vue'
 import { inject, ref } from 'vue'
 import ExtLink from '~/components/ExtLink.vue'
 import ProjectCard from '~/components/ProjectCard.vue'
