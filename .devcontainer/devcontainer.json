@@ -10,8 +10,9 @@
 			"extensions": [
 				"Vue.volar",
 				"bradlc.vscode-tailwindcss",
-				"esbenp.prettier-vscode",
-				"YoavBls.pretty-ts-errors"
+				"YoavBls.pretty-ts-errors",
+				"oxc.oxc-vscode",
+				"VoidZero.vite-plus-extension-pack"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash",
