@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
-curl -fsSL https://bun.sh/install | bash
-echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
-echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
+curl -fsSL https://vite.plus | bash
+echo '. "$HOME/.vite-plus/env"' >> "$HOME/.bashrc"
+. "$HOME/.vite-plus/env"
+
+sudo ln -s "$(which node)" /usr/local/bin/node
+
+vp install -g pnpm
+pnpm config set store-dir ~/.pnpm-store --global
+pnpm i
