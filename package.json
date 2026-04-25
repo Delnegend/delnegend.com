@@ -1,49 +1,41 @@
 {
 	"name": "delnegend",
 	"private": true,
-	"type": "module",
-	"author": "Delnegend <kiennguyen19323@gmail.com>",
 	"license": "MIT",
+	"author": "Delnegend <kiennguyen19323@gmail.com>",
+	"type": "module",
 	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev --no-fork",
-		"start": "nuxt start",
-		"generate": "nuxt generate",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare",
-		"lint": "oxlint --import-plugin -D correctness -D perf && prettier -l -w \"**/*.{js,ts,vue,json,css}\""
+		"type-check": "vue-tsc --build",
+		"build": "vp build",
+		"dev": "vp dev",
+		"check": "vp check --fix",
+		"prepare": "vp config"
 	},
 	"dependencies": {
-		"@lucide/vue": "^1.0.2",
+		"@lucide/vue": "^1.11.0",
 		"@vueuse/core": "^14.2.1",
 		"clsx": "^2.1.1",
-		"nuxt": "^4.4.2",
-		"reka-ui": "^2.9.2",
+		"reka-ui": "^2.9.6",
 		"tailwind-merge": "^3.5.0",
 		"tailwindcss-animate": "^1.0.7",
-		"vue": "^3.5.30"
+		"vue": "^3.5.33"
 	},
 	"devDependencies": {
-		"@tailwindcss/vite": "^4.2.2",
-		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
-		"oxlint": "^1.56.0",
-		"prettier": "^3.8.1",
-		"prettier-plugin-tailwindcss": "^0.7.2",
-		"tailwindcss": "^4.2.2"
+		"@tailwindcss/vite": "^4.2.4",
+		"@types/node": "^25.6.0",
+		"@vitejs/plugin-vue": "^6.0.6",
+		"@voidzero-dev/vite-plus-core": "latest",
+		"@vue/tsconfig": "^0.9.1",
+		"tailwindcss": "^4.2.4",
+		"typescript": "^6.0.3",
+		"vite-plus": "latest",
+		"vue-tsc": "^3.2.7"
 	},
-	"prettier": {
-		"semi": false,
-		"singleQuote": true,
-		"tabWidth": 4,
-		"useTabs": true,
-		"plugins": [
-			"@trivago/prettier-plugin-sort-imports",
-			"prettier-plugin-tailwindcss"
-		],
-		"tailwindStylesheet": "src/app.css",
-		"trailingComma": "none",
-		"tailwindFunctions": [
-			"cn"
-		]
+	"packageManager": "pnpm@10.33.0",
+	"pnpm": {
+		"overrides": {
+			"vite": "npm:@voidzero-dev/vite-plus-core@latest",
+			"vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+		}
 	}
 }
