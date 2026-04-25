@@ -26,7 +26,7 @@
 	}
 
 	body {
-		@apply overflow-y-scroll bg-[url(~/assets/grid.png)] bg-size-[8rem] bg-repeat text-foreground;
+		@apply overflow-y-scroll bg-[url('./grid.png')] bg-size-[8rem] bg-repeat text-foreground;
 	}
 
 	:root {
@@ -91,7 +91,7 @@
 		font-family: 'Excalifont';
 		font-style: normal;
 		font-weight: 400;
-		src: url('./assets/excalifont/Excalifont.woff2') format('woff2');
+		src: url('./excalifont/Excalifont.woff2') format('woff2');
 	}
 
 	:root {
@@ -156,18 +156,22 @@
 @theme inline {
 	--animate-accordion-down: accordion-down 0.2s ease-out;
 	--animate-accordion-up: accordion-up 0.2s ease-out;
+
 	@keyframes accordion-down {
 		from {
 			height: 0;
 		}
+
 		to {
 			height: var(--reka-accordion-content-height);
 		}
 	}
+
 	@keyframes accordion-up {
 		from {
 			height: var(--reka-accordion-content-height);
 		}
+
 		to {
 			height: 0;
 		}
