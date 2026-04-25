@@ -16,15 +16,6 @@
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash",
-				"[json]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[vue]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
-				"[ts]": {
-					"editor.defaultFormatter": "esbenp.prettier-vscode"
-				},
 				"tailwindCSS.classFunctions": ["cn"]
 			}
 		}
