@@ -4,9 +4,9 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 RUN apt-get update && apt-get install -y \
-    curl git sudo unzip \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    curl git sudo && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -g 1000 delnegend && \
     useradd -m -u 1000 -g delnegend delnegend && \
