@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+
 import { cn } from '~/lib/utils'
 
-enum BadgeVariant {
-	Default = 'default',
-	Secondary = 'secondary',
-	Destructive = 'destructive',
-	OutlineSolid = 'outline-solid'
-}
+import { BadgeVariant } from '.'
 
 const props = withDefaults(
 	defineProps<{
@@ -108,11 +104,7 @@ const classes = cn(
 }
 
 .tauri {
-	--bg: linear-gradient(
-		90deg,
-		hsl(186, 72%, 50%) 0%,
-		hsl(42, 100%, 60%) 100%
-	);
+	--bg: linear-gradient(90deg, hsl(186, 72%, 50%) 0%, hsl(42, 100%, 60%) 100%);
 	--text: hsl(0, 0%, 0%);
 }
 
