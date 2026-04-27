@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { inject, ref } from 'vue'
+
+import { cn } from '~/lib/utils'
+
 import Arrow1 from './stickers/Arrow1.vue'
 import Arrow2 from './stickers/Arrow2.vue'
 import Arrow3 from './stickers/Arrow3.vue'
@@ -24,8 +28,6 @@ import Star2 from './stickers/Star2.vue'
 import Star3 from './stickers/Star3.vue'
 import Star4 from './stickers/Star4.vue'
 import Star5 from './stickers/Star5.vue'
-import { inject, ref } from 'vue'
-import { cn } from '~/lib/utils'
 
 const props = withDefaults(
 	defineProps<{
@@ -46,27 +48,19 @@ const Questions = [Question1, Question2, Question3, Question4, Question5]
 const Sparks = [Spark1, Spark2, Spark3, Spark4, Spark5]
 const Stars = [Star1, Star2, Star3, Star4, Star5]
 
+// oxlint-disable-next-line eslint(no-magic-numbers)
 const ticker = inject('stickerTicker', ref(1))
 </script>
 
 <template>
 	<div :class="cn('text-balance', props.class)">
-		<div
-			:class="
-				cn(
-					'flex items-center',
-					props.sticker === 'spark' ? 'gap-0' : 'gap-2'
-				)
-			"
-		>
+		<div :class="cn('flex items-center', props.sticker === 'spark' ? 'gap-0' : 'gap-2')">
 			<div
 				v-if="sticker"
 				:class="
 					cn(
 						'overflow-hidden [&_svg]:h-20 [&_svg]:object-contain',
-						props.sticker === 'spark'
-							? 'min-w-10 [&_svg]:w-10'
-							: 'min-w-14 [&_svg]:w-14'
+						props.sticker === 'spark' ? 'min-w-10 [&_svg]:w-10' : 'min-w-14 [&_svg]:w-14'
 					)
 				"
 			>
@@ -109,9 +103,7 @@ const ticker = inject('stickerTicker', ref(1))
 				:class="
 					cn(
 						'overflow-hidden [&_svg]:h-20 [&_svg]:object-contain',
-						props.sticker === 'spark'
-							? 'min-w-10 [&_svg]:w-10'
-							: 'min-w-14 [&_svg]:w-14',
+						props.sticker === 'spark' ? 'min-w-10 [&_svg]:w-10' : 'min-w-14 [&_svg]:w-14',
 						props.flipSecondSticker && 'scale-x-[-1]'
 					)
 				"

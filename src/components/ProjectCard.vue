@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-import Badge from './Badge.vue'
-import ExtLink from './ExtLink.vue'
-import { badgeLinks, type ProjectBadge } from '~/data/projectBadges'
 import type { Project } from '~/data/projects'
+
+import { badgeLinks, ProjectBadge } from '~/data/project-badges'
 import { cn } from '~/lib/utils'
+
+import { BadgeVariant } from './Badge'
+import Badge from './Badge/Badge.vue'
+import ExtLink from './ExtLink.vue'
 
 const props = withDefaults(
 	defineProps<{
@@ -12,8 +15,8 @@ const props = withDefaults(
 		class?: string
 	}>(),
 	{
-		url: undefined,
-		class: undefined
+		class: '',
+		url: null
 	}
 )
 </script>
@@ -21,36 +24,25 @@ const props = withDefaults(
 <template>
 	<div
 		:class="
-			cn(
-				'flex flex-col gap-3 font-extralight text-balance text-secondary-foreground',
-				props.class
-			)
+			cn('flex flex-col gap-3 font-extralight text-balance text-secondary-foreground', props.class)
 		"
 	>
-		<ExtLink
-			v-if="props.project.repo"
-			:href="props.project.repo"
-			target="_blank"
-			class="!text-2xl"
-		>
+		<ExtLink v-if="props.project.repo" :href="props.project.repo" target="_blank" class="text-2xl">
 			{{ props.title }}
 		</ExtLink>
 		<span class="text-2xl" v-else>{{ props.title }}</span>
 
-		<p class="!text-lg">
+		<p class="text-lg">
 			{{ props.project.description }}
 		</p>
 
 		<div class="flex flex-wrap gap-1">
-			<Badge
-				v-if="typeof props.project.status === 'string'"
-				variant="default"
-			>
+			<Badge v-if="typeof props.project.status === 'string'" :variant="BadgeVariant.OutlineSolid">
 				{{ props.project.status }}
 			</Badge>
 			<Badge
 				v-if="Array.isArray(props.project.status)"
-				variant="default"
+				:variant="BadgeVariant.Default"
 				v-for="status in props.project.status"
 			>
 				{{ status }}
@@ -60,7 +52,7 @@ const props = withDefaults(
 				:href="badgeLinks[badge as ProjectBadge]"
 				v-for="badge in props.project.badges"
 				:key="badge"
-				variant="outline-solid"
+				:variant="BadgeVariant.OutlineSolid"
 				:class="cn('text-muted-foreground', badge)"
 			>
 				{{ badge }}

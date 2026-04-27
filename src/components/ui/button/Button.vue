@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { buttonVariants, type ButtonSize, type ButtonVariant } from '.'
+import type { ClassValue, HTMLAttributes } from 'vue'
+
 import { Primitive, type PrimitiveProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
+
+import { type ButtonSize, type ButtonVariant, buttonVariants } from '.'
 
 const props = withDefaults(
 	defineProps<
 		PrimitiveProps & {
 			variant?: ButtonVariant
 			size?: ButtonSize
-			class?: HTMLAttributes['class']
+			class?: ClassValue
 		}
 	>(),
 	{

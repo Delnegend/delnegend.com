@@ -2,10 +2,10 @@ import type { projects } from './projects'
 
 export interface Skill {
 	name: string
-	repos: Array<keyof typeof projects>
+	repos: (keyof typeof projects)[]
 }
 
-export const skills = [
+export const SKILLS: Skill[] = [
 	{
 		name: 'Backend Development',
 		repos: [
@@ -45,31 +45,15 @@ export const skills = [
 	},
 	{
 		name: 'Desktop app Development',
-		repos: [
-			'Kiness Social/Admin',
-			'gallery-preprocessor',
-			'social-2-telego'
-		]
+		repos: ['Kiness Social/Admin', 'gallery-preprocessor', 'social-2-telego']
 	},
 	{
 		name: 'Image & Media Processing',
-		repos: [
-			'Artefact',
-			'Differ',
-			'gallery-preprocessor',
-			'taxer',
-			'ffmpeg-progressbar'
-		]
+		repos: ['Artefact', 'Differ', 'gallery-preprocessor', 'taxer', 'ffmpeg-progressbar']
 	},
 	{
 		name: 'Web Scrape, Data Extract',
-		repos: [
-			'Update',
-			'upptime-embed',
-			'social-2-telego',
-			'avtxtr',
-			'social-2-telegram'
-		]
+		repos: ['Update', 'upptime-embed', 'social-2-telego', 'avtxtr', 'social-2-telegram']
 	},
 	{
 		name: 'API Develop & Integration',
@@ -94,13 +78,7 @@ export const skills = [
 	},
 	{
 		name: 'System Architect',
-		repos: [
-			'Biolak',
-			'Yomuyume',
-			'Artefact',
-			'Kiness Social/Admin',
-			'Differ'
-		]
+		repos: ['Biolak', 'Yomuyume', 'Artefact', 'Kiness Social/Admin', 'Differ']
 	},
 	{
 		name: 'UI/UX Implementation',
@@ -115,4 +93,4 @@ export const skills = [
 			'social-2-telego'
 		]
 	}
-] as const satisfies Skill[]
+] as const

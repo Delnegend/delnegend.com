@@ -5,13 +5,7 @@ export type ProjectBadge =
 	| (typeof projects)[keyof typeof projects]['badges'][number]
 	| (typeof additional)[number]
 
-const excluded = new Set<ProjectBadge>([
-	'fshare',
-	'jpeg',
-	'jpeg-xl',
-	'png',
-	'yt-dlp'
-])
+const excluded = new Set<ProjectBadge>(['fshare', 'jpeg', 'jpeg-xl', 'png', 'yt-dlp'])
 const highlight = new Set<ProjectBadge>([
 	'linux',
 	'rust',
@@ -27,14 +21,13 @@ const highlight = new Set<ProjectBadge>([
 	'payload-cms'
 ])
 
-export const projectBadges = Object.values(projects).reduce(
-	(acc, project) => {
-		for (const badge of project.badges)
-			if (!excluded.has(badge)) acc.add(badge)
-		return acc
-	},
-	new Set([...highlight, ...additional]) as Set<ProjectBadge>
-)
+export const projectBadges = new Set<ProjectBadge>([
+	...highlight,
+	...additional,
+	...Object.values(projects).flatMap((project) =>
+		project.badges.filter((badge) => !excluded.has(badge))
+	)
+])
 
 export const badgeLinks: Record<ProjectBadge, string> = {
 	rust: 'https://www.rust-lang.org/',

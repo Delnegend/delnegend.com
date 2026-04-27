@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import DialogClose from './DialogClose.vue'
-import { X } from '@lucide/vue'
 import type { HTMLAttributes } from 'vue'
+
+import { X } from '@lucide/vue'
+
 import { cn } from '~/lib/utils'
+
+import DialogClose from './DialogClose.vue'
 
 const props = defineProps<{
 	class?: HTMLAttributes['class']
@@ -12,12 +15,7 @@ const props = defineProps<{
 <template>
 	<div
 		data-slot="dialog-header"
-		:class="
-			cn(
-				'flex flex-row items-center justify-between gap-2 text-center',
-				props.class
-			)
-		"
+		:class="cn('flex flex-row items-center justify-between gap-2 text-center', props.class)"
 	>
 		<slot />
 		<DialogClose

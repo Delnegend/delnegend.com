@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ExternalLink } from '@lucide/vue'
+
 import { cn } from '~/lib/utils'
 
 const props = withDefaults(
@@ -10,8 +11,8 @@ const props = withDefaults(
 		target?: '_blank' | '_self' | '_parent' | '_top'
 	}>(),
 	{
-		iconSize: 14,
 		class: '',
+		iconSize: 14,
 		target: '_blank'
 	}
 )

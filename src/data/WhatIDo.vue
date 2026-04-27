@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { links } from './links'
-import { projects } from './projects'
-import { skills } from './skills'
 import { X } from '@lucide/vue'
 import { inject, ref } from 'vue'
+
 import ExtLink from '~/components/ExtLink.vue'
 import ProjectCard from '~/components/ProjectCard.vue'
 import Rectangle1 from '~/components/stickers/Rectangle1.vue'
@@ -22,10 +20,15 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs'
 import { cn } from '~/lib/utils'
 
+import { links } from './links'
+import { projects } from './projects'
+import { type Skill, SKILLS } from './skills'
+
 const dialogOpen = ref(false)
-const selectedSkill = ref<(typeof skills)[number] | null>(null)
+const selectedSkill = ref<Skill | null>(null)
 const viewingVersion = ref<'short' | 'long'>('short')
 
+// oxlint-disable-next-line eslint(no-magic-numbers)
 const ticker = inject('stickerTicker', ref(1))
 const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 </script>
@@ -34,9 +37,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 	<div class="text-balance">
 		<Dialog :open="dialogOpen" @update:open="dialogOpen = $event">
 			<DialogContent class="max-h-[90dvh] gap-12 overflow-y-auto">
-				<DialogHeader
-					class="flex flex-row items-center justify-between"
-				>
+				<DialogHeader class="flex flex-row items-center justify-between">
 					<DialogTitle class="text-left">
 						Projects related to {{ selectedSkill?.name }}
 					</DialogTitle>
@@ -66,9 +67,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 					:class="
 						cn(
 							'absolute top-1/2 left-0 -translate-y-1/2 transition-transform',
-							viewingVersion === 'short'
-								? '-translate-x-2'
-								: 'translate-x-[calc(var(--spacing)*26)]'
+							viewingVersion === 'short' ? '-translate-x-2' : 'translate-x-26'
 						)
 					"
 				>
@@ -84,24 +83,15 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 				<TabsTrigger value="long">Long version</TabsTrigger>
 			</TabsList>
 
-			<div
-				:class="
-					cn('animate-grid', viewingVersion === 'long' && 'active')
-				"
-			>
-				<TabsContent
-					:value="viewingVersion"
-					class="flex flex-col gap-3 overflow-hidden"
-				>
+			<div :class="cn('animate-grid', viewingVersion === 'long' && 'active')">
+				<TabsContent :value="viewingVersion" class="flex flex-col gap-3 overflow-hidden">
 					<div class="text-xl">I do these</div>
-					<div
-						class="grid w-full grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 p-1"
-					>
+					<div class="grid w-full grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 p-1">
 						<Button
 							:variant="ButtonVariant.Outline"
 							:size="ButtonSize.Lg"
 							class="text-lg"
-							v-for="skill in skills"
+							v-for="skill in SKILLS"
 							:key="skill.name"
 							@click="
 								() => {
@@ -138,26 +128,18 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 				</TabsContent>
 			</div>
 
-			<div
-				:class="
-					cn('animate-grid', viewingVersion === 'short' && 'active')
-				"
-			>
+			<div :class="cn('animate-grid', viewingVersion === 'short' && 'active')">
 				<TabsContent :value="viewingVersion" class="overflow-hidden">
-					<p>
-						I architect, build, test, deploy, and maintain modern,
-						high-quality software.
-					</p>
+					<p>I architect, build, test, deploy, and maintain modern, high-quality software.</p>
 				</TabsContent>
 			</div>
 		</Tabs>
 
 		<p class="mt-3">
-			If you're interested in requesting my work, contact me either
-			through
-			<ExtLink :href="links.Discord.link">Discord</ExtLink>
+			If you're interested in requesting my work, contact me either through
+			<ExtLink :href="links.Discord">Discord</ExtLink>
 			or
-			<ExtLink :href="links.Email.link">email</ExtLink>.
+			<ExtLink :href="links.Email">email</ExtLink>.
 		</p>
 	</div>
 </template>
@@ -169,10 +151,7 @@ const Rectangles = [Rectangle1, Rectangle2, Rectangle3, Rectangle4, Rectangle5]
 	min-height: 0;
 	opacity: 0;
 	transition-property: grid-template-rows, opacity;
-	transition-timing-function: var(
-		--tw-ease,
-		var(--default-transition-timing-function)
-	);
+	transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
 	transition-duration: 0.3s;
 }
 .animate-grid.active {

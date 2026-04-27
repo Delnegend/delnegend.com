@@ -16,17 +16,9 @@ export interface Project {
 export const projects = {
 	Biolak: {
 		repo: 'https://new.biolak.vn',
-		description:
-			'An e-commerce platform specializing in health and beauty products.',
+		description: 'An e-commerce platform specializing in health and beauty products.',
 		status: Status.COMPLETED,
-		badges: [
-			'typescript',
-			'react',
-			'nextjs',
-			'payload-cms',
-			'tailwindcss',
-			'shadcn-ui'
-		]
+		badges: ['typescript', 'react', 'nextjs', 'payload-cms', 'tailwindcss', 'shadcn-ui']
 	},
 	Yomuyume: {
 		repo: 'https://github.com/Liminova/yomuyume',
@@ -89,8 +81,7 @@ export const projects = {
 	},
 	'task-manager-rs': {
 		repo: 'https://github.com/Delnegend/task-manager-rs',
-		description:
-			'A simple POC task manager app built with Rust and Slint, works on Linux.',
+		description: 'A simple POC task manager app built with Rust and Slint, works on Linux.',
 		status: [Status.COMPLETED, Status.ARCHIVED],
 		badges: ['rust', 'slint', 'linux', 'tokio']
 	},
@@ -120,14 +111,7 @@ export const projects = {
 		description:
 			'An alternative, modern status page for websites that displays service uptime information by directly processing data from a GitHub-powered status system.',
 		status: [Status.COMPLETED, Status.NEEDS_IMPROVEMENT],
-		badges: [
-			'go',
-			'typescript',
-			'nuxt',
-			'regex',
-			'tailwindcss',
-			'shadcn-ui'
-		]
+		badges: ['go', 'typescript', 'nuxt', 'regex', 'tailwindcss', 'shadcn-ui']
 	},
 	taxer: {
 		repo: 'https://github.com/Liminova/taxer',
@@ -141,15 +125,7 @@ export const projects = {
 		description:
 			'A desktop app that simplifies sharing content from social media platforms like Twitter/X and FurAffinity directly to a Telegram channel.',
 		status: [Status.COMPLETED, Status.ARCHIVED],
-		badges: [
-			'go',
-			'wails',
-			'nuxt',
-			'sqlite',
-			'tailwindcss',
-			'shadcn-ui',
-			'telegram'
-		]
+		badges: ['go', 'wails', 'nuxt', 'sqlite', 'tailwindcss', 'shadcn-ui', 'telegram']
 	},
 	'cf-ddns': {
 		repo: 'https://github.com/Delnegend/cf-ddns',
@@ -204,7 +180,7 @@ export const projects = {
 		badges: ['python', 'fshare', 'regex']
 	},
 	KHPlayer: {
-		repo: 'https://github.com/Delnegend/social-2-telegram', // Note: This URL seems incorrect based on the description, but I'm using the provided one.
+		repo: 'https://github.com/Delnegend/khplayer',
 		description:
 			'A front-end JavaScript library that simplifies embedding and configuring the Plyr.io video player, enabling playlist features through simple HTML attributes without requiring direct JavaScript coding.',
 		status: [Status.COMPLETED, Status.ARCHIVED],

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import DialogOverlay from './DialogOverlay.vue'
+import type { HTMLAttributes } from 'vue'
+
 import { reactiveOmit } from '@vueuse/core'
 import {
 	DialogContent,
@@ -8,12 +9,12 @@ import {
 	DialogPortal,
 	useForwardPropsEmits
 } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
+
 import { cn } from '~/lib/utils'
 
-const props = defineProps<
-	DialogContentProps & { class?: HTMLAttributes['class'] }
->()
+import DialogOverlay from './DialogOverlay.vue'
+
+const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DialogContentEmits>()
 
 const delegatedProps = reactiveOmit(props, 'class')
