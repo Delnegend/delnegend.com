@@ -24,7 +24,10 @@ jobs:
         uses: voidzero-dev/setup-vp@v1
         with:
           cache: true
-          run-install: true
+      - name: Setup pnpm & install dependencies
+        run: |
+          vp i -g pnpm
+          vp install
       - name: Build with Vite Plus
         run: vp build
       - name: Deploy to Cloudflare Pages
